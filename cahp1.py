@@ -42,10 +42,6 @@ def clear():
 		exit()
 clear()
 
-def achv(target, reward, phrasef):
-	if phrasef == target:
-		print("\n" + reward)
-
 def fin():
 	print("\nGoodbye!\n")
 	ts(0.5)
@@ -180,8 +176,6 @@ while True:
 
 	try:
 		phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
-		
-		achv(target="---> A gay homosexual has been seduced by a gay homosexual!", reward="Achievement get: Pride month!", phrasef=phrase)
 		
 		phraseinput = input(phrase + " ")
 		
