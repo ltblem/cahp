@@ -2,7 +2,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = 57
+version = 58
 
 
 from random import choice as rc
@@ -89,6 +89,7 @@ things = [
 	"planet",
 	"tree",
 	"thing",
+	"[REDACTED]"
 ]
 
 hasbeens = [
@@ -120,12 +121,15 @@ verbs = [
 	"ignored",
 	"rejected",
 	"armed",
+	"[CENSORED]"
 ]
 
 adjectives = [
 	"A green",
 	"A mysterious",
 	"My",
+	"A",
+	"A",
 	"A",
 	"A",
 	"The neighbourhood",
@@ -151,6 +155,7 @@ adjectives = [
 	"That there",
 	"An incredibly sexy",
 	"The most powerful ever",
+	"A [REMOVED]"
 ]
 
 punctuation = [
@@ -167,6 +172,7 @@ punctuation = [
 	", which is a total waste of time.",
 	". OMG!",
 	". I wish things like this were more common.",
+	", Holy ****! What a *****!",
 ]
 
 
