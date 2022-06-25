@@ -2,7 +2,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = 58
+version = 59
 
 
 from random import choice as rc
@@ -173,6 +173,7 @@ punctuation = [
 	". OMG!",
 	". I wish things like this were more common.",
 	", Holy ****! What a *****!",
+	"Upgrade to premium for the full story!",
 ]
 
 
