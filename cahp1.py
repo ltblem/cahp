@@ -5,6 +5,7 @@
 version = 59
 
 
+import random
 from random import choice as rc
 from time import sleep as ts
 from os import name as sysname, system as ex
@@ -26,6 +27,7 @@ ctrl+c to exit
 
 redrawMode = False
 savepath = "./cahp1-save.txt"
+premium = False 	#* This is completely fake, change to True if you find it annoying.
 
 def bundle():
 	ex("pyinstaller --onefile ./cahp1.py -n cahp1-" + str(version) + " && mv ./dist/cahp1-" + str(version) + " ./ && rm -r ./build && rmdir ./dist && rm cahp1-" + str(version) + ".spec && echo 'Bundle completed, no error reported by pyinstaller or shell.'")
@@ -173,8 +175,9 @@ punctuation = [
 	". OMG!",
 	". I wish things like this were more common.",
 	", Holy ****! What a *****!",
-	"Upgrade to premium for the full story!",
 ]
+if premium == False:
+	punctuation.append(". Upgrade to premium to see the full story!")
 
 
 print("Press h for help, enter for a new story.")
@@ -187,7 +190,14 @@ while True:
 	print()
 
 	try:
-		phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+
+		if random.randint(1,20) == 1:
+			if premium == False:
+				phrase = "Notice: Upgrading to premium will get you more, better content!"
+			else:
+				phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+		else:
+			phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 		
 		phraseinput = input(phrase + " ")
 		
