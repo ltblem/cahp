@@ -1,8 +1,9 @@
+#!/bin/python3
 
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = 59
+version = 60
 
 
 import random
