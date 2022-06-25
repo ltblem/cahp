@@ -2,7 +2,7 @@
 # Cahp2 - A random exam question generator.
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = 7
+version = 8
 
 # INFO:
 # Cahp2 is much more simple and well-written than Cahp1. I do plan on fully 
@@ -40,6 +40,8 @@ commands = [
 	"Determine",
 	"Tell me",
 	"Show me",
+	"Give me",
+	"Tell me about",
 ]
 
 attributes = [
@@ -58,6 +60,14 @@ attributes = [
 	"the sexiness",
 	"the usefulness",
 	"the price",
+	"the IQ",
+	"the height",
+	"the weight",
+	"the age",
+	"the size",
+	"the length",
+	"the width",
+	"the depth",
 ]
 
 objects = [
@@ -68,6 +78,9 @@ objects = [
 	"my sexuality",
 	"a Tesla Model S",
 	"your Biology teacher",
+	"your Maths teacher",
+	"a random person",
+	"the United States Declaration of Independance",
 ]
 
 def createQ():
