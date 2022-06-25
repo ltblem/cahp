@@ -2,7 +2,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = 56
+version = 57
 
 
 from random import choice as rc
@@ -86,7 +86,9 @@ things = [
 	"fish",
 	"moose",
 	"log",
-	"planet"
+	"planet",
+	"tree",
+	"thing",
 ]
 
 hasbeens = [
@@ -117,6 +119,7 @@ verbs = [
 	"pillaged",
 	"ignored",
 	"rejected",
+	"armed",
 ]
 
 adjectives = [
@@ -146,7 +149,8 @@ adjectives = [
 	"A disabled",
 	"This here",
 	"That there",
-	"An incredibly sexy"
+	"An incredibly sexy",
+	"The most powerful ever",
 ]
 
 punctuation = [
@@ -161,7 +165,8 @@ punctuation = [
 	", which is terrifying, but I don't care.",
 	"; What an absolute pillock!",
 	", which is a total waste of time.",
-	". OMG!"
+	". OMG!",
+	". I wish things like this were more common.",
 ]
 
 
