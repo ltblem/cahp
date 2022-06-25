@@ -175,6 +175,9 @@ punctuation = [
 	". OMG!",
 	". I wish things like this were more common.",
 	", Holy ****! What a *****!",
+	". I'm not even sure what to say.",
+	". Holy moly guacamole!",
+	"; Read on with premium!",
 ]
 if premium == False:
 	punctuation.append(". Upgrade to premium to see the full story!")
