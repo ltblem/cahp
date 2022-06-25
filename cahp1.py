@@ -92,7 +92,8 @@ things = [
 	"planet",
 	"tree",
 	"thing",
-	"[REDACTED]"
+	"[REDACTED]",
+	"stranger",
 ]
 
 hasbeens = [
@@ -158,7 +159,8 @@ adjectives = [
 	"That there",
 	"An incredibly sexy",
 	"The most powerful ever",
-	"A [REMOVED]"
+	"A [REMOVED]",
+	"A random",
 ]
 
 punctuation = [
@@ -195,11 +197,15 @@ while True:
 
 	try:
 
-		if random.randint(1,20) == 1:
+		randval = random.randint(1, 100)
+
+		if randval <= 5:
 			if premium == False:
 				phrase = "Notice: Upgrading to premium will get you more, better content!"
 			else:
 				phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+		elif randval <= 9:
+			phrase = "---> Just saw " + rc(adjectives).lower() + " " + rc(things) + ". That's pretty " + rc(["cool","fun","chill","weird"]) + "."
 		else:
 			phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 		
