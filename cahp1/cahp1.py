@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v67-r1"
+version = "c1v67-r2"
 
 
 import random, json
@@ -85,7 +85,7 @@ def setPhrase():
 
 def setInfo():
 	name = rc(writtenby_f) + " " + rc(writtenby_l)
-	info = "Written by " + name + " on " + rc(["January","February","March","April","May","June","July","August","September","October","November","December"]) + " " + str(random.randint(1, 31)) + ", " + str(random.randint(1970, 2021))
+	info = "Written by " + name + " on " + rc(["January","February","March","April","May","June","July","August","September","October","November","December"]) + " " + str(random.randint(1, 31)) + ", " + str(random.randint(2019, 2021))
 	return info
 
 while True:
