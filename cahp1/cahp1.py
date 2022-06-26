@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v67-r2"
+version = "c1v67-r3"
 
 
 import random, json
@@ -126,10 +126,14 @@ while True:
 				print(info + "\n")
 				input("Press enter to continue.")
 			elif infoStat == "promo":
+				print("There is currently no real premium implementation, just chnage the premium variable to True in the program to remove this message.\n")
 				input("Press enter to continue.")
 			elif infoStat == "me":
 				print("I wrote that one, just now.\n")
 				input("Press enter to continue.")
+			else:
+				print("Error: Uhh, I think you broke something.")
+				exit()
 		elif phraseinput == "":
 			continue
 		else:
