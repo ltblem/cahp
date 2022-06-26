@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v69-r2"
+version = "c1v70-r3"
 
 
 import random, json
@@ -28,7 +28,7 @@ ctrl+c to exit
 redrawMode = False
 savepath = "./cahp1-save.txt"
 premium = False 	#* This is completely fake, change to True if you find it annoying.
-infoStat = "availible"
+infoStat = None
 moreInfo = False
 
 def clear():
@@ -55,6 +55,7 @@ verbs = cahpdata["verbs"]
 punctuation = cahpdata["punctuation"]
 writtenby_f = cahpdata["writtenby_f"]
 writtenby_l = cahpdata["writtenby_l"]
+tips = cahpdata["tips"]
 # Using a JSON file to store the data makes it easier to add new
 # words to the game without modifying the actual logic of the program.
 
@@ -78,6 +79,9 @@ def setPhrase():
 	elif randval <= 9:
 		phrase = "---> Just saw " + rc(adjectives).lower() + " " + rc(things) + ". That's pretty " + rc(["cool","fun","chill","weird"]) + "."
 		infoStat = "me"
+	elif randval >= 90:
+		phrase = "Tip: " + rc(tips)
+		infoStat = "promo"
 	else:
 		phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 		infoStat = "availible"
@@ -106,7 +110,7 @@ while True:
 			phraseinput = input(phrase + "\n   > " + "Written by me about ten seconds ago" + " ")
 		elif infoStat == "promo":
 			phraseinput = input(phrase + "\n   > " + " ")
-		
+
 		if phraseinput == "v":
 			print("\nCahp1 version " + str(version))
 			print("Cahp1 - A random sentence generator.\nCreated by LetThereBeLemons")
