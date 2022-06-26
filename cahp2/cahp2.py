@@ -2,7 +2,7 @@
 # Cahp2 - A random exam question generator.
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c2v11-r1"
+version = "c2v12-r1"
 
 # INFO:
 # Cahp2 is much more simple and well-written than Cahp1. I do plan on fully 
@@ -36,7 +36,7 @@ objects = cahpdata["objects"]
 
 
 def createQ():
-	question = random.choice(commands) + " " + random.choice(attributes) + " of " + random.choice(objects) + "."
+	question = random.choice(commands) + " " + random.choice(attributes) + " of " + random.choice(objects) + ". [" + str(random.randint(2,10)) + " marks]"
 	return question
 
 def fin():
