@@ -2,13 +2,14 @@
 # Cahp2 - A random exam question generator.
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c2v12-r1"
+version = "c2v13-r1"
 
 # INFO:
 # Cahp2 is much more simple and well-written than Cahp1. I do plan on fully 
 # rewriting Cahp1 in the future, but I don't know when I'll get round to it.
 
 import os, random, time, json
+from string import punctuation
 def clear():
 	if os.name == "posix":
 		os.system("clear")
@@ -33,10 +34,11 @@ cahpdata = json.load(open("cahp2/cahp2.data.json"))
 commands = cahpdata["commands"]
 attributes = cahpdata["attributes"]
 objects = cahpdata["objects"]
+punctuation = cahpdata["punctuation"]
 
 
 def createQ():
-	question = random.choice(commands) + " " + random.choice(attributes) + " of " + random.choice(objects) + ". [" + str(random.randint(2,10)) + " marks]"
+	question = random.choice(commands) + " " + random.choice(attributes) + " of " + random.choice(objects) + random.choice(punctuation) + " [" + str(random.randint(2,10)) + " marks]"
 	return question
 
 def fin():

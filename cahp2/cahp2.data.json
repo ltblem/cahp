@@ -8,7 +8,8 @@
 		"Tell me",
 		"Show me",
 		"Give me",
-		"Tell me about"
+		"Tell me about",
+		"Note down"
 	],
 	
 	"attributes" : [
@@ -47,6 +48,32 @@
 		"your Biology teacher",
 		"your Maths teacher",
 		"a random person",
-		"the United States Declaration of Independance"
+		"the United States Declaration of Independance",
+		"the United States Constitution",
+		"a random book",
+		"a jar of dirt",
+		"this d-",
+		"ur mom lmao",
+		"a rock",
+		"a gamer",
+		"a cat",
+		"a dog",
+		"a bird",
+		"the average homosexual",
+		"a mysterious brown object",
+		"a 9-wheel bicycle",
+		"absolutely nothing",
+		"a female",
+		"a fish"
+	],
+
+	"punctuation" : [
+		". Show your working.",
+		".",
+		".",
+		".",
+		". Give your answer in standard form.",
+		". Give your answer in washing machines.",
+		", using the data from the table provided."
 	]
 }
