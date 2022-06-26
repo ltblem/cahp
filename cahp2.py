@@ -2,7 +2,7 @@
 # Cahp2 - A random exam question generator.
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c2v9r1-1"
+version = "c2v10-r1"
 
 # INFO:
 # Cahp2 is much more simple and well-written than Cahp1. I do plan on fully 
@@ -15,10 +15,6 @@ def clear():
 	elif os.name == "nt":
 		os.system("cls")
 clear()
-
-def bundle():
-	os.system("pyinstaller --onefile ./cahp2.py -n cahp2-" + str(version) + " && mv ./dist/cahp2-" + str(version) + " ./ && rm -r ./build && rmdir ./dist && rm cahp2-" + str(version) + ".spec && echo 'Bundle completed, no error reported by pyinstaller or shell.'")
-	exit()
 
 helppage = """
 Cahp2 - A random exam question generator
@@ -105,13 +101,6 @@ while True:
 			print(helppage)
 		elif cmdd == "c":
 			clear()
-		elif cmdd == "b":
-			try:
-				input("WARNING - BUNDLE IS DANGEROUS - FILES WILL BE DELETED - PRESS ENTER TO CONTINUE")
-			except KeyboardInterrupt:
-				print("\nBundle safely aborted.")
-				exit()
-			bundle()
 		elif cmdd == "v":
 			print("Cahp2 version " + str(version) + ", created by LetThereBeLemons")
 		else:
