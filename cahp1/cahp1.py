@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v67-r4"
+version = "c1v69-r2"
 
 
 import random, json
@@ -22,7 +22,6 @@ v - version
 r - toggle redraw mode, clearing the screen every time a new story is generated
 s - save a sentence
 sp - set a new save path, `./cahp1-save.txt` by default
-i - show more info about a story
 ctrl+c to exit
 """
 
@@ -30,6 +29,7 @@ redrawMode = False
 savepath = "./cahp1-save.txt"
 premium = False 	#* This is completely fake, change to True if you find it annoying.
 infoStat = "availible"
+moreInfo = False
 
 def clear():
 	if sysname == "posix":
@@ -100,7 +100,12 @@ while True:
 		phrase = setPhrase()
 		info = setInfo()
 
-		phraseinput = input(phrase + " ")
+		if infoStat == "availible":
+			phraseinput = input(phrase + "\n   > " + info + " ")
+		elif infoStat == "me":
+			phraseinput = input(phrase + "\n   > " + "Written by me about ten seconds ago" + " ")
+		elif infoStat == "promo":
+			phraseinput = input(phrase + "\n   > " + " ")
 		
 		if phraseinput == "v":
 			print("\nCahp1 version " + str(version))
@@ -121,19 +126,6 @@ while True:
 			print("Saved.")
 		elif phraseinput == "sp":
 			savepath = input("Enter a new path: ")
-		elif phraseinput == "i":
-			if infoStat == "availible":
-				print(info + "\n")
-				input("Press enter to continue.")
-			elif infoStat == "promo":
-				print("There is currently no real premium implementation, just chnage the premium variable to True in the program to remove this message.\n")
-				input("Press enter to continue.")
-			elif infoStat == "me":
-				print("I wrote that one, just now.\n")
-				input("Press enter to continue.")
-			else:
-				print("Error: Uhh, I think you broke something.")
-				exit()
 		elif phraseinput == "":
 			continue
 		else:
