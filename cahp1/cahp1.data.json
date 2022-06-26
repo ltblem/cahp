@@ -45,7 +45,8 @@
 		"girlfriend",
 		"boyfriend",
 		"family",
-		"morbius"
+		"morbius",
+		"Tesla"
 	],
 
 	"hasbeens" : [
@@ -111,6 +112,7 @@
 		"A worthless",
 		"A flat",
 		"A slippery",
+		"A",
 		"A disabled",
 		"This here",
 		"That there",
@@ -122,6 +124,7 @@
 	
 	"punctuation" : [
 		"!",
+		".",
 		".",
 		"!?",
 		"..?",
@@ -137,7 +140,9 @@
 		", Holy ****! What a *****!",
 		". I'm not even sure what to say.",
 		". Holy moly guacamole!",
-		"; Read on with premium!"
+		"; Read on with premium!",
+		"..? That's so weird!",
+		". Now that's a real one."
 	],
 
 	"writtenby_f" : [
@@ -166,7 +171,12 @@
 		"George",
 		"Joshua",
 		"Brian",
-		"my colleague"
+		"my colleague",
+		"Isabelle",
+		"Caroline",
+		"Natalie",
+		"Nathan",
+		"Edward"
 	],
 
 	"writtenby_l" : [
