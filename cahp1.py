@@ -3,10 +3,12 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = 60
+version = 61
 
 
-import random
+import random, json, time, os
+from string import punctuation
+from tabnanny import verbose
 from random import choice as rc
 from time import sleep as ts
 from os import name as sysname, system as ex
@@ -51,137 +53,13 @@ def fin():
 	exit()
 
 
-things = [
-	"can of coke",
-	"cat",
-	"car",
-	"dad",
-	"Santa",
-	"brown object",
-	"bloke",
-	"man",
-	"murderer",
-	"homosexual",
-	"trans guy",
-	"car",
-	"teenager",
-	"mum",
-	"terrorist",
-	"dog",
-	"hero",
-	"teenage son",
-	"can opener",
-	"girl",
-	"trans girl",
-	"teen",
-	"youngster",
-	"hypocrite",
-	"fortnite sweat",
-	"gamer",
-	"rock",
-	"scientist",
-	"monster",
-	"racist",
-	"groin",
-	"piece of junk",
-	"deer",
-	"bike",
-	"fish",
-	"moose",
-	"log",
-	"planet",
-	"tree",
-	"thing",
-	"[REDACTED]",
-	"stranger",
-]
+cahpdata = json.load(open("cahp1.data.json"))
+things = cahpdata["things"]
+adjectives = cahpdata["adjectives"]
+hasbeens = cahpdata["hasbeens"]
+verbs = cahpdata["verbs"]
+punctuation = cahpdata["punctuation"]
 
-hasbeens = [
-	"has been",
-	"has just been",
-	"was",
-	"was just",
-	"just got",
-]
-
-verbs = [
-	"stolen",
-	"hit",
-	"murdered",
-	"seduced",
-	"killed",
-	"punched",
-	"licked",
-	"purchased",
-	"found guilty of assault",
-	"opened",
-	"abused",
-	"poked",
-	"absolutely incinerated",
-	"bonked",
-	"nonced on",
-	"drained",
-	"pillaged",
-	"ignored",
-	"rejected",
-	"armed",
-	"[CENSORED]"
-]
-
-adjectives = [
-	"A green",
-	"A mysterious",
-	"My",
-	"A",
-	"A",
-	"A",
-	"A",
-	"The neighbourhood",
-	"My friend's",
-	"An extremely hot",
-	"This guy's",
-	"A gay",
-	"A gang consisting of a brutal killer and a terrifying",
-	"My cousin's daughter's teacher's",
-	"A solid",
-	"A racist",
-	"The country's best",
-	"An abusive",
-	"A sweaty",
-	"This one massive",
-	"A fat",
-	"A mad",
-	"A worthless",
-	"A flat",
-	"A slippery",
-	"A disabled",
-	"This here",
-	"That there",
-	"An incredibly sexy",
-	"The most powerful ever",
-	"A [REMOVED]",
-	"A random",
-]
-
-punctuation = [
-	"!",
-	".",
-	"!?",
-	"..?",
-	"...",
-	"; More at 6!",
-	", who refused to comment on the matter.",
-	". Oh no! Anyway...",
-	", which is terrifying, but I don't care.",
-	"; What an absolute pillock!",
-	", which is a total waste of time.",
-	". OMG!",
-	". I wish things like this were more common.",
-	", Holy ****! What a *****!",
-	". I'm not even sure what to say.",
-	". Holy moly guacamole!",
-	"; Read on with premium!",
-]
 if premium == False:
 	punctuation.append(". Upgrade to premium to see the full story!")
 
