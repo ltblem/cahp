@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v70-r3"
+version = "c1v70-r4"
 
 
 import random, json
@@ -79,7 +79,7 @@ def setPhrase():
 	elif randval <= 9:
 		phrase = "---> Just saw " + rc(adjectives).lower() + " " + rc(things) + ". That's pretty " + rc(["cool","fun","chill","weird"]) + "."
 		infoStat = "me"
-	elif randval >= 90:
+	elif randval >= 80:
 		phrase = "Tip: " + rc(tips)
 		infoStat = "promo"
 	else:
