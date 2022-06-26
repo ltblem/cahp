@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v67-r3"
+version = "c1v67-r4"
 
 
 import random, json
@@ -62,7 +62,7 @@ if premium == False:
 	punctuation.append(". Upgrade to premium to see the full story!")
 
 
-print("Press h for help, enter for a new story.")
+print("Cahp1 - A LetThereBeLemons creation\nPress h for help, enter for a new story.")
 
 
 def setPhrase():
@@ -104,7 +104,7 @@ while True:
 		
 		if phraseinput == "v":
 			print("\nCahp1 version " + str(version))
-			print("Cahp1 - A random sentence generator.\ncreated by LetThereBeLemons")
+			print("Cahp1 - A random sentence generator.\nCreated by LetThereBeLemons")
 		elif phraseinput == "c":
 			clear()
 		elif phraseinput == "h":
