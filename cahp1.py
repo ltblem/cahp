@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = 62
+version = 63
 
 
 import random, json
@@ -53,6 +53,8 @@ adjectives = cahpdata["adjectives"]
 hasbeens = cahpdata["hasbeens"]
 verbs = cahpdata["verbs"]
 punctuation = cahpdata["punctuation"]
+# Using a JSON file to store the data makes it easier to add new
+# words to the game without modifying the actual logic of the program.
 
 if premium == False:
 	punctuation.append(". Upgrade to premium to see the full story!")
@@ -85,7 +87,7 @@ while True:
 		
 		if phraseinput == "v":
 			print("\nCahp1 version " + str(version))
-			print("Cahp1 - A random sentence generator, created by LetThereBeLemons")
+			print("Cahp1 - A random sentence generator.\ncreated by LetThereBeLemons")
 		elif phraseinput == "c":
 			clear()
 		elif phraseinput == "h":
