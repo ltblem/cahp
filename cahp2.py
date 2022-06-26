@@ -2,13 +2,13 @@
 # Cahp2 - A random exam question generator.
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c2v10-r1"
+version = "c2v11-r1"
 
 # INFO:
 # Cahp2 is much more simple and well-written than Cahp1. I do plan on fully 
 # rewriting Cahp1 in the future, but I don't know when I'll get round to it.
 
-import os, random, time
+import os, random, time, json
 def clear():
 	if os.name == "posix":
 		os.system("clear")
@@ -28,56 +28,12 @@ v - version
 ctrl+c to exit
 """
 
-commands = [
-	"Calculate",
-	"Explain",
-	"Describe",
-	"Identify",
-	"Determine",
-	"Tell me",
-	"Show me",
-	"Give me",
-	"Tell me about",
-]
 
-attributes = [
-	"the mass",
-	"the velocity",
-	"the acceleration",
-	"the force",
-	"the energy",
-	"the power",
-	"the pressure",
-	"the temperature",
-	"the speed",
-	"the density",
-	"the area",
-	"the volume",
-	"the sexiness",
-	"the usefulness",
-	"the price",
-	"the IQ",
-	"the height",
-	"the weight",
-	"the age",
-	"the size",
-	"the length",
-	"the width",
-	"the depth",
-]
+cahpdata = json.load(open("cahp2.data.json"))
+commands = cahpdata["commands"]
+attributes = cahpdata["attributes"]
+objects = cahpdata["objects"]
 
-objects = [
-	"the Sun",
-	"the Moon",
-	"the Earth",
-	"my dad",
-	"my sexuality",
-	"a Tesla Model S",
-	"your Biology teacher",
-	"your Maths teacher",
-	"a random person",
-	"the United States Declaration of Independance",
-]
 
 def createQ():
 	question = random.choice(commands) + " " + random.choice(attributes) + " of " + random.choice(objects) + "."

@@ -1,0 +1,52 @@
+{
+	"commands" : [
+		"Calculate",
+		"Explain",
+		"Describe",
+		"Identify",
+		"Determine",
+		"Tell me",
+		"Show me",
+		"Give me",
+		"Tell me about"
+	],
+	
+	"attributes" : [
+		"the mass",
+		"the velocity",
+		"the acceleration",
+		"the force",
+		"the energy",
+		"the power",
+		"the pressure",
+		"the temperature",
+		"the speed",
+		"the density",
+		"the area",
+		"the volume",
+		"the sexiness",
+		"the usefulness",
+		"the price",
+		"the IQ",
+		"the height",
+		"the weight",
+		"the age",
+		"the size",
+		"the length",
+		"the width",
+		"the depth"
+	],
+	
+	"objects" : [
+		"the Sun",
+		"the Moon",
+		"the Earth",
+		"my dad",
+		"my sexuality",
+		"a Tesla Model S",
+		"your Biology teacher",
+		"your Maths teacher",
+		"a random person",
+		"the United States Declaration of Independance"
+	]
+}
