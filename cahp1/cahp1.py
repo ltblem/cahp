@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v66-r1"
+version = "c1v67-r1"
 
 
 import random, json
@@ -22,12 +22,14 @@ v - version
 r - toggle redraw mode, clearing the screen every time a new story is generated
 s - save a sentence
 sp - set a new save path, `./cahp1-save.txt` by default
+i - show more info about a story
 ctrl+c to exit
 """
 
 redrawMode = False
 savepath = "./cahp1-save.txt"
 premium = False 	#* This is completely fake, change to True if you find it annoying.
+infoStat = "availible"
 
 def clear():
 	if sysname == "posix":
@@ -51,6 +53,8 @@ adjectives = cahpdata["adjectives"]
 hasbeens = cahpdata["hasbeens"]
 verbs = cahpdata["verbs"]
 punctuation = cahpdata["punctuation"]
+writtenby_f = cahpdata["writtenby_f"]
+writtenby_l = cahpdata["writtenby_l"]
 # Using a JSON file to store the data makes it easier to add new
 # words to the game without modifying the actual logic of the program.
 
@@ -59,6 +63,30 @@ if premium == False:
 
 
 print("Press h for help, enter for a new story.")
+
+
+def setPhrase():
+	global infoStat
+	randval = random.randint(1, 100)
+	if randval <= 5:
+		if premium == False:
+			phrase = "Notice: Upgrading to premium will get you more, better content!"
+			infoStat = "promo"
+		else:
+			phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+			infoStat = "availible"
+	elif randval <= 9:
+		phrase = "---> Just saw " + rc(adjectives).lower() + " " + rc(things) + ". That's pretty " + rc(["cool","fun","chill","weird"]) + "."
+		infoStat = "me"
+	else:
+		phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+		infoStat = "availible"
+	return phrase
+
+def setInfo():
+	name = rc(writtenby_f) + " " + rc(writtenby_l)
+	info = "Written by " + name + " on " + rc(["January","February","March","April","May","June","July","August","September","October","November","December"]) + " " + str(random.randint(1, 31)) + ", " + str(random.randint(1970, 2021))
+	return info
 
 while True:
 	
@@ -69,18 +97,9 @@ while True:
 
 	try:
 
-		randval = random.randint(1, 100)
+		phrase = setPhrase()
+		info = setInfo()
 
-		if randval <= 5:
-			if premium == False:
-				phrase = "Notice: Upgrading to premium will get you more, better content!"
-			else:
-				phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
-		elif randval <= 9:
-			phrase = "---> Just saw " + rc(adjectives).lower() + " " + rc(things) + ". That's pretty " + rc(["cool","fun","chill","weird"]) + "."
-		else:
-			phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
-		
 		phraseinput = input(phrase + " ")
 		
 		if phraseinput == "v":
@@ -102,6 +121,15 @@ while True:
 			print("Saved.")
 		elif phraseinput == "sp":
 			savepath = input("Enter a new path: ")
+		elif phraseinput == "i":
+			if infoStat == "availible":
+				print(info + "\n")
+				input("Press enter to continue.")
+			elif infoStat == "promo":
+				input("Press enter to continue.")
+			elif infoStat == "me":
+				print("I wrote that one, just now.\n")
+				input("Press enter to continue.")
 		elif phraseinput == "":
 			continue
 		else:
