@@ -3,11 +3,10 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v64r1-1"
+version = "c1v64-r2"
 
 
 import random, json
-from string import punctuation
 from random import choice as rc
 from time import sleep as ts
 from os import name as sysname, system as ex
