@@ -41,7 +41,10 @@
 		"tree",
 		"thing",
 		"[REDACTED]",
-		"stranger"
+		"stranger",
+		"girlfriend",
+		"boyfriend",
+		"family"
 	],
 
 	"hasbeens" : [
@@ -73,7 +76,11 @@
 		"ignored",
 		"rejected",
 		"armed",
-		"[CENSORED]"
+		"[CENSORED]",
+		"twisted",
+		"investigated",
+		"cleaned",
+		"married"
 	],
 
 	"adjectives" : [
