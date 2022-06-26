@@ -3,10 +3,10 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = 61
+version = 62
 
 
-import random, json, time, os
+import random, json
 from string import punctuation
 from tabnanny import verbose
 from random import choice as rc
@@ -20,7 +20,6 @@ A LetThereBeLemons creation
 enter - generate new story
 h - this help page
 c - clear
-b - bundle into executable (advanced)
 v - version
 r - toggle redraw mode, clearing the screen every time a new story is generated
 s - save a sentence
@@ -31,11 +30,6 @@ ctrl+c to exit
 redrawMode = False
 savepath = "./cahp1-save.txt"
 premium = False 	#* This is completely fake, change to True if you find it annoying.
-
-def bundle():
-	ex("pyinstaller --onefile ./cahp1.py -n cahp1-" + str(version) + " && mv ./dist/cahp1-" + str(version) + " ./ && rm -r ./build && rmdir ./dist && rm cahp1-" + str(version) + ".spec && echo 'Bundle completed, no error reported by pyinstaller or shell.'")
-	print("Done.")
-	exit()
 
 def clear():
 	if sysname == "posix":
@@ -92,14 +86,6 @@ while True:
 		if phraseinput == "v":
 			print("\nCahp1 version " + str(version))
 			print("Cahp1 - A random sentence generator, created by LetThereBeLemons")
-		elif phraseinput == "b":
-			try:
-				input("WARNING - BUNDLE IS DANGEROUS - FILES MAY BE REMOVED - ENTER TO CONTINUE - CTRL+C TO CANCEL")
-			except KeyboardInterrupt:
-				print("\nCancelled.")
-				exit()
-			print("ATTEMPTING BUNDLE...\n")
-			bundle()
 		elif phraseinput == "c":
 			clear()
 		elif phraseinput == "h":
