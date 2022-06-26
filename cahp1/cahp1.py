@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v64-r2"
+version = "c1v65-r1"
 
 
 import random, json
@@ -45,7 +45,7 @@ def fin():
 	exit()
 
 
-cahpdata = json.load(open("cahp1.data.json"))
+cahpdata = json.load(open("cahp1/cahp1.data.json"))
 things = cahpdata["things"]
 adjectives = cahpdata["adjectives"]
 hasbeens = cahpdata["hasbeens"]
@@ -75,11 +75,11 @@ while True:
 			if premium == False:
 				phrase = "Notice: Upgrading to premium will get you more, better content!"
 			else:
-				phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+				phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " " + rc(["by", "to"]) + " " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 		elif randval <= 9:
 			phrase = "---> Just saw " + rc(adjectives).lower() + " " + rc(things) + ". That's pretty " + rc(["cool","fun","chill","weird"]) + "."
 		else:
-			phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+			phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " " + rc(["by", "to"]) + " " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 		
 		phraseinput = input(phrase + " ")
 		

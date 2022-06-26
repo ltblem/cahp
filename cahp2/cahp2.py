@@ -29,7 +29,7 @@ ctrl+c to exit
 """
 
 
-cahpdata = json.load(open("cahp2.data.json"))
+cahpdata = json.load(open("cahp2/cahp2.data.json"))
 commands = cahpdata["commands"]
 attributes = cahpdata["attributes"]
 objects = cahpdata["objects"]
