@@ -2,7 +2,7 @@
 # Cahp2 - A random exam question generator.
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = 8
+version = "c2v9r1-1"
 
 # INFO:
 # Cahp2 is much more simple and well-written than Cahp1. I do plan on fully 
