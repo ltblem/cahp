@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v70-r6"
+version = "c1v71-r3"
 
 
 import random, json
@@ -30,7 +30,7 @@ savepath = "./cahp1-save.txt"
 premium = False 	#* This is completely fake, change to True if you find it annoying.
 infoStat = None
 moreInfo = False
-tips = True
+tipstat = True
 
 def clear():
 	if sysname == "posix":
@@ -69,28 +69,22 @@ print("Cahp1 - A LetThereBeLemons creation\nPress h for help, enter for a new st
 
 def setPhrase():
 	global infoStat
-	randval = random.randint(1, 100)
-	if randval <= 5:
-		if premium == False:
-			phrase = "Notice: Upgrading to premium will get you more, better content!"
-			infoStat = "promo"
-		else:
-			phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
-			infoStat = "availible"
-	elif randval <= 9:
-		phrase = "---> Just saw " + rc(adjectives).lower() + " " + rc(things) + ". That's pretty " + rc(["cool","fun","chill","weird"]) + "."
-		infoStat = "me"
-	elif randval >= 80:
-		if tips == True:
-			phrase = "Tip: " + rc(tips)
-			infoStat = "promo"
-		else:
-			phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
-			infoStat = "availible"
-	else:
+	p, t, s = "promo", "tip", "story"
+	choice = rc([s, s, s, s, s, s, s, s, s, s, s, s, s, t, t, t, t, t, p, p])
+
+	if choice == "promo" and premium == False:
+		phrase = "Notice: Upgrading to premium will get you more, better content!"
+		infoStat = "promo"
+	elif choice == "tip" and tipstat == True:
+		phrase = "Tip " + str(random.randint(100000, 999999)) + ": " + rc(tips)#? Tips currently random numbers, might actually number every tip.
+		infoStat = "promo"
+	elif choice == "story":
 		phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 		infoStat = "availible"
+
 	return phrase
+
+
 
 def setInfo():
 	name = rc(writtenby_f) + " " + rc(writtenby_l)

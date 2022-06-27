@@ -230,9 +230,9 @@
 	],
 
 	"tips" : [
-		"Dont be an asshole",
-		"Type `h` for some help",
-		"Type `v` to see the version",
+		"Dont be an asshole.",
+		"Type `h` for some help.",
+		"Type `v` to see the version.",
 		"Type harder!",
 		"It's nice to be nice.",
 		"Use ctrl+c to quit, if you find me too annoying.",
