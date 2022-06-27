@@ -3,9 +3,10 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v70-r4"
+version = "c1v70-r5"
 
 
+from pickle import TRUE
 import random, json
 from random import choice as rc
 from time import sleep as ts
@@ -30,6 +31,7 @@ savepath = "./cahp1-save.txt"
 premium = False 	#* This is completely fake, change to True if you find it annoying.
 infoStat = None
 moreInfo = False
+tips = True
 
 def clear():
 	if sysname == "posix":
@@ -80,8 +82,12 @@ def setPhrase():
 		phrase = "---> Just saw " + rc(adjectives).lower() + " " + rc(things) + ". That's pretty " + rc(["cool","fun","chill","weird"]) + "."
 		infoStat = "me"
 	elif randval >= 80:
-		phrase = "Tip: " + rc(tips)
-		infoStat = "promo"
+		if tips == True:
+			phrase = "Tip: " + rc(tips)
+			infoStat = "promo"
+		else:
+			phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+			infoStat = "availible"
 	else:
 		phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 		infoStat = "availible"

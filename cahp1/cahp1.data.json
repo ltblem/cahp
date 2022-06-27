@@ -138,7 +138,7 @@
 		", which is a total waste of time.",
 		". OMG!",
 		". I wish things like this were more common.",
-		", Holy ****! What a *****!",
+		". Holy ****! What a *****!",
 		". I'm not even sure what to say.",
 		". Holy moly guacamole!",
 		"; Read on with premium!",
@@ -224,6 +224,8 @@
 		"Hey, premium sounds pretty cool. Know how I can get it?",
 		"This program has so many more features than when it was first written.",
 		"I'm adding new words all the time, take a look at the GitHub repository!",
-		"When's the last time you went outside?"
+		"When's the last time you went outside?",
+		"You can toggle these tips by changing the `tips` variable in the code.",
+		"These tips are common because there are so many here."
 	]
 }
