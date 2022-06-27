@@ -47,7 +47,10 @@
 		"family",
 		"morbius",
 		"Tesla",
-		"skateboard"
+		"skateboard",
+		"British Monarch",
+		"****head",
+		"paedophile"
 	],
 
 	"hasbeens" : [
@@ -84,7 +87,8 @@
 		"investigated",
 		"cleaned",
 		"married",
-		"morbed"
+		"morbed",
+		"nibbled"
 	],
 
 	"adjectives" : [
@@ -120,7 +124,11 @@
 		"An incredibly sexy",
 		"The most powerful ever",
 		"A [REMOVED]",
-		"A random"
+		"A random",
+		"A pretty cool",
+		"A massive",
+		"A tiny",
+		"A small"
 	],
 	
 	"punctuation" : [
@@ -177,7 +185,15 @@
 		"Caroline",
 		"Natalie",
 		"Nathan",
-		"Edward"
+		"Edward",
+		"Juan",
+		"Kevin",
+		"Jason",
+		"Tim",
+		"Sam",
+		"Barack",
+		"Bill",
+		"Boris"
 	],
 
 	"writtenby_l" : [
@@ -203,7 +219,14 @@
 		"Thompson",
 		"Garcia",
 		"Martinez",
-		"Hopley"
+		"Hopley",
+		"Cook",
+		"Rogers",
+		"Reed",
+		"Trump",
+		"Clinton",
+		"Bush",
+		"Obama"
 	],
 
 	"tips" : [
