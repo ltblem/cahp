@@ -3,10 +3,9 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v70-r5"
+version = "c1v70-r6"
 
 
-from pickle import TRUE
 import random, json
 from random import choice as rc
 from time import sleep as ts
