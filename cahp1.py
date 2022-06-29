@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v712-r1"
+version = "c1v73-r1"
 
 
 import random, json
@@ -79,13 +79,14 @@ print("Cahp1 - A LetThereBeLemons creation\nPress h for help, enter for a new st
 def setPhrase():
 	global infoStat
 	p, t, s = "promo", "tip", "story"
-	choice = rc([s, s, s, s, s, s, s, s, s, s, s, s, s, t, t, t, t, t, p, p])
+	choice = rc([s, s, s, s, s, s, s, s, s, s, s, s, s, s, t, t, t, t, t, p])
 
 	if choice == "promo" and premium == False:
 		phrase = colours_green_bold + "Notice: " + colours_reset + "Upgrading to premium will get you more, better content!"
 		infoStat = "promo"
 	elif choice == "tip" and tipstat == True:
-		phrase = colours_green_bold + "Tip " + str(random.randint(100000, 999999)) + ": " + colours_reset + rc(tips)#? Tips currently random numbers, might actually number every tip.s
+		tipchoice = random.randint(0, len(tips)-1)
+		phrase = colours_green_bold + "Tip " + str(tipchoice) + ": " + colours_reset + tips[tipchoice]
 		infoStat = "promo"
 	elif choice == "story":
 		phrase = colours_green_bold + "---> " + colours_reset + colours_bold + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
