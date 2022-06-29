@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v71-r3"
+version = "c1v71-r4"
 
 
 import random, json
@@ -48,7 +48,7 @@ def fin():
 	exit()
 
 
-cahpdata = json.load(open("cahp1/cahp1.data.json"))
+cahpdata = json.load(open("cahp1.data.json"))
 things = cahpdata["things"]
 adjectives = cahpdata["adjectives"]
 hasbeens = cahpdata["hasbeens"]

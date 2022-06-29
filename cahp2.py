@@ -2,7 +2,7 @@
 # Cahp2 - A random exam question generator.
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c2v13-r1"
+version = "c2v13-r2"
 
 # INFO:
 # Cahp2 is much more simple and well-written than Cahp1. I do plan on fully 
@@ -30,7 +30,7 @@ ctrl+c to exit
 """
 
 
-cahpdata = json.load(open("cahp2/cahp2.data.json"))
+cahpdata = json.load(open("cahp2.data.json"))
 commands = cahpdata["commands"]
 attributes = cahpdata["attributes"]
 objects = cahpdata["objects"]
