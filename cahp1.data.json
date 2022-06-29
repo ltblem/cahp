@@ -50,7 +50,8 @@
 		"skateboard",
 		"British Monarch",
 		"****head",
-		"paedophile"
+		"paedophile",
+		"snail"
 	],
 
 	"hasbeens" : [
@@ -128,7 +129,9 @@
 		"A pretty cool",
 		"A massive",
 		"A tiny",
-		"A small"
+		"A small",
+		"A territorial",
+		"A super fast"
 	],
 	
 	"punctuation" : [
@@ -151,7 +154,8 @@
 		". Holy moly guacamole!",
 		"; Read on with premium!",
 		"..? That's so weird!",
-		". Now that's a real one."
+		". Now that's a real one.",
+		", like WTF!?"
 	],
 
 	"writtenby_f" : [
@@ -219,7 +223,10 @@
 		"W.",
 		"X.",
 		"Y.",
-		"Z."
+		"Z.",
+		"Purbyfurk",
+		"Bilbo",
+		"J. P."
 	],
 
 	"writtenby_l" : [
@@ -256,7 +263,8 @@
 		"Putin",
 		"The Great",
 		"Winston",
-		"Shnurdenburgh"
+		"Shnurdenburgh",
+		"Chestnutt"
 	],
 
 	"tips" : [
@@ -284,6 +292,7 @@
 		"Cahp2 is neglected, maybe I should work on it more.",
 		"Bored yet? Or hardly started?",
 		"Working hard or hardly working?",
-		"p"
+		"I added colours to Cahp1 recently, do you like it?",
+		"All this breaking news is hurting my brain!"
 	]
 }
