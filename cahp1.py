@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v71-r4"
+version = "c1v712-r1"
 
 
 import random, json
@@ -27,10 +27,19 @@ ctrl+c to exit
 
 redrawMode = False
 savepath = "./cahp1-save.txt"
-premium = False 	#* This is completely fake, change to True if you find it annoying.
+premium = False #* This is completely fake, change to True if you find it annoying.
 infoStat = None
 moreInfo = False
 tipstat = True
+
+
+# Setting the colours
+colours_reset = "\x1b[0m"
+colours_bold = "\x1b[1m"
+colours_green = "\x1b[32m"
+colours_green_bold = "\x1b[32;1m"
+
+
 
 def clear():
 	if sysname == "posix":
@@ -73,13 +82,13 @@ def setPhrase():
 	choice = rc([s, s, s, s, s, s, s, s, s, s, s, s, s, t, t, t, t, t, p, p])
 
 	if choice == "promo" and premium == False:
-		phrase = "Notice: Upgrading to premium will get you more, better content!"
+		phrase = colours_green_bold + "Notice: " + colours_reset + "Upgrading to premium will get you more, better content!"
 		infoStat = "promo"
 	elif choice == "tip" and tipstat == True:
-		phrase = "Tip " + str(random.randint(100000, 999999)) + ": " + rc(tips)#? Tips currently random numbers, might actually number every tip.
+		phrase = colours_green_bold + "Tip " + str(random.randint(100000, 999999)) + ": " + colours_reset + rc(tips)#? Tips currently random numbers, might actually number every tip.s
 		infoStat = "promo"
 	elif choice == "story":
-		phrase = "---> " + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+		phrase = colours_green_bold + "---> " + colours_reset + colours_bold + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 		infoStat = "availible"
 
 	return phrase
@@ -104,11 +113,11 @@ while True:
 		info = setInfo()
 
 		if infoStat == "availible":
-			phraseinput = input(phrase + "\n   > " + info + " ")
+			phraseinput = input(phrase + "\n" + colours_green_bold + "   > " + colours_reset + info + " ")
 		elif infoStat == "me":
-			phraseinput = input(phrase + "\n   > " + "Written by me about ten seconds ago" + " ")
+			phraseinput = input(phrase + "\n" + colours_green_bold + "   > " + colours_reset + "Written by me about ten seconds ago" + " ")
 		elif infoStat == "promo":
-			phraseinput = input(phrase + "\n   > " + " ")
+			phraseinput = input(phrase + "\n" + colours_green_bold + "   > " + colours_reset + " ")
 
 		if phraseinput == "v":
 			print("\nCahp1 version " + str(version))
