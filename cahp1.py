@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v73-r1"
+version = "c1v73-r2"
 
 
 import random, json
@@ -86,7 +86,7 @@ def setPhrase():
 		infoStat = "promo"
 	elif choice == "tip" and tipstat == True:
 		tipchoice = random.randint(0, len(tips)-1)
-		phrase = colours_green_bold + "Tip " + str(tipchoice) + ": " + colours_reset + tips[tipchoice]
+		phrase = colours_green_bold + "Tip #" + str(tipchoice) + ": " + colours_reset + tips[tipchoice]
 		infoStat = "promo"
 	elif choice == "story":
 		phrase = colours_green_bold + "---> " + colours_reset + colours_bold + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
