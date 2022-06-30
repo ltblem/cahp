@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v73-r2"
+version = "c1v74-r1"
 
 
 import random, json
@@ -51,10 +51,6 @@ def clear():
 		exit()
 clear()
 
-def fin():
-	print("\nGoodbye!\n")
-	ts(0.5)
-	exit()
 
 
 cahpdata = json.load(open("cahp1.data.json"))
@@ -66,11 +62,18 @@ punctuation = cahpdata["punctuation"]
 writtenby_f = cahpdata["writtenby_f"]
 writtenby_l = cahpdata["writtenby_l"]
 tips = cahpdata["tips"]
+goodbies = cahpdata["goodbies"]
 # Using a JSON file to store the data makes it easier to add new
 # words to the game without modifying the actual logic of the program.
 
-if premium == False:
-	punctuation.append(". Upgrade to premium to see the full story!")
+
+def fin():
+	print("\n" + colours_green_bold + rc(goodbies) + colours_reset +"\n")
+	ts(0.5)
+	exit()
+
+
+if premium == False: punctuation.append(". Upgrade to premium to see the full story!")
 
 
 print("Cahp1 - A LetThereBeLemons creation\nPress h for help, enter for a new story.")

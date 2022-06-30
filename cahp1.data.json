@@ -293,6 +293,17 @@
 		"Bored yet? Or hardly started?",
 		"Working hard or hardly working?",
 		"I added colours to Cahp1 recently, do you like it?",
-		"All this breaking news is hurting my brain!"
+		"All this breaking news is hurting my brain!",
+		"I know a guy, who knows a guy, who knows a guy."
+	],
+
+	"goodbies" : [
+		"Goodbye!",
+		"Bye!",
+		"See you later!",
+		"See you!",
+		"Laters!",
+		"Hope you had fun!",
+		"Hope you enjoyed!"
 	]
 }
