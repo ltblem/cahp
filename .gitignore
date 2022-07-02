@@ -1,5 +1,12 @@
+# Ignoring the stuff pyinstaller creates
 build
 dist
+
+# Ignoring the binary cache created by importing files
 __pycache__
+
+# Specfiles aren't used here
 *.spec
+
+# Binaries will be published in the releases section
 cahp1-*
