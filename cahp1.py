@@ -3,8 +3,8 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v74-r1"
-
+version = "c1v75-r1"
+release = 1
 
 import random, json
 from random import choice as rc
