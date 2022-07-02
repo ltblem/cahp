@@ -3,10 +3,10 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v75-pytojson-r2"
+version = "c1v76-r1"
 release = 1
 
-import random, json
+import random
 from random import choice as rc
 from time import sleep as ts
 from os import name as sysname, system as ex
