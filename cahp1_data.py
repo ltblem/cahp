@@ -288,7 +288,7 @@ tips = [
 	"You can toggle these tips by changing the `tips` variable in the code.",
 	"These tips are common because there are so many here.",
 	"The world isn't nice at the moment, you can chill here for a moment if you'd like.",
-	"Cahp2 is neglected, maybe I should work on it more.",
+	"I stopped updating cahp2 because I found it boring.",
 	"Bored yet? Or hardly started?",
 	"Working hard or hardly working?",
 	"I added colours to Cahp1 recently, do you like it?",
