@@ -3,10 +3,10 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v75-r1"
+version = "c1v76-r1"
 release = 1
 
-import random, json
+import random
 from random import choice as rc
 from time import sleep as ts
 from os import name as sysname, system as ex
@@ -53,17 +53,8 @@ clear()
 
 
 
-cahpdata = json.load(open("cahp1.data.json"))
-things = cahpdata["things"]
-adjectives = cahpdata["adjectives"]
-hasbeens = cahpdata["hasbeens"]
-verbs = cahpdata["verbs"]
-punctuation = cahpdata["punctuation"]
-writtenby_f = cahpdata["writtenby_f"]
-writtenby_l = cahpdata["writtenby_l"]
-tips = cahpdata["tips"]
-goodbies = cahpdata["goodbies"]
-# Using a JSON file to store the data makes it easier to add new
+from cahp1_data import *
+# Using a python file to store the data makes it easier to add new
 # words to the game without modifying the actual logic of the program.
 
 
