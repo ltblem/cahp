@@ -3,13 +3,14 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v76-r1"
-release = 1
+version = "c1v76-r2"
+release = 0
 
 import random
 from random import choice as rc
 from time import sleep as ts
 from os import name as sysname, system as ex
+from sys import exit as sysexit
 
 helppage = """
 Cahp1 - A random sentence generator
@@ -48,7 +49,7 @@ def clear():
 		ex("cls")
 	else:
 		print("ERROR:\nUnrecognised system, program has failed.\n")
-		exit()
+		sysexit()
 clear()
 
 
@@ -61,7 +62,7 @@ from cahp1_data import *
 def fin():
 	print("\n" + colours_green_bold + rc(goodbies) + colours_reset +"\n")
 	ts(0.5)
-	exit()
+	sysexit()
 
 
 if premium == False: punctuation.append(". Upgrade to premium to see the full story!")
