@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v77-r1"
+version = "c1v78-r1"
 release = 1
 
 import random
@@ -12,19 +12,7 @@ from time import sleep as ts
 from os import name as sysname, system as ex
 from sys import exit as sysexit
 
-helppage = """
-Cahp1 - A random sentence generator
-A LetThereBeLemons creation
----------------------------
-enter - generate new story
-h - this help page
-c - clear
-v - version
-r - toggle redraw mode, clearing the screen every time a new story is generated
-s - save a sentence
-sp - set a new save path, `./cahp1-save.txt` by default
-ctrl+c to exit
-"""
+
 
 redrawMode = False
 savepath = "./cahp1-save.txt"
@@ -33,13 +21,7 @@ infoStat = None
 moreInfo = False
 tipstat = True
 
-
-# Setting the colours
-colours_reset = "\x1b[0m"
-colours_bold = "\x1b[1m"
-colours_green = "\x1b[32m"
-colours_green_bold = "\x1b[32;1m"
-
+# Colours are now imported from cahp1_data.py
 
 
 def clear():
@@ -60,7 +42,7 @@ from cahp1_data import *
 
 
 def fin():
-	print("\n" + colours_green_bold + rc(goodbies) + colours_reset +"\n")
+	print("\n" + colours["green"] + colours["bold"] + rc(goodbies) + colours["reset"] +"\n")
 	ts(0.5)
 	sysexit()
 
@@ -77,14 +59,14 @@ def setPhrase():
 	choice = rc([s, s, s, s, s, s, s, s, s, s, s, s, s, s, t, t, t, t, t, p])
 
 	if choice == "promo" and premium == False:
-		phrase = colours_green_bold + "Notice: " + colours_reset + "Upgrading to premium will get you more, better content!"
+		phrase = colours["green"] + colours["bold"] + "Notice: " + colours["reset"] + "Upgrading to premium will get you more, better content!"
 		infoStat = "promo"
 	elif choice == "tip" and tipstat == True:
 		tipchoice = random.randint(0, len(tips)-1)
-		phrase = colours_green_bold + "Tip #" + str(tipchoice) + ": " + colours_reset + tips[tipchoice]
+		phrase = colours["green"] + colours["bold"] + "Tip #" + str(tipchoice) + ": " + colours["reset"] + tips[tipchoice]
 		infoStat = "promo"
 	elif choice == "story":
-		phrase = colours_green_bold + "---> " + colours_reset + colours_bold + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+		phrase = colours["green"] + colours["bold"] + "---> " + colours["reset"] + colours["bold"] + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 		infoStat = "availible"
 
 	return phrase
@@ -109,11 +91,11 @@ while True:
 		info = setInfo()
 
 		if infoStat == "availible":
-			phraseinput = input(phrase + "\n" + colours_green_bold + "   > " + colours_reset + info + " ")
+			phraseinput = input(phrase + "\n" + colours["green"] + colours["bold"] + "   > " + colours["reset"] + info + " ")
 		elif infoStat == "me":
-			phraseinput = input(phrase + "\n" + colours_green_bold + "   > " + colours_reset + "Written by me about ten seconds ago" + " ")
+			phraseinput = input(phrase + "\n" + colours["green"] + colours["bold"] + "   > " + colours["reset"] + "Written by me about ten seconds ago" + " ")
 		elif infoStat == "promo":
-			phraseinput = input(phrase + "\n" + colours_green_bold + "   > " + colours_reset + " ")
+			phraseinput = input(phrase + "\n" + colours["green"] + colours["bold"] + "   > " + colours["reset"] + " ")
 
 		if phraseinput == "v":
 			print("\nCahp1 version " + str(version))

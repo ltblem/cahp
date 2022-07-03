@@ -305,3 +305,24 @@ goodbies = [
 	"Hope you had fun!",
 	"Hope you enjoyed!"
 ]
+
+helppage = """
+Cahp1 - A random sentence generator
+A LetThereBeLemons creation
+---------------------------
+enter - generate new story
+h - this help page
+c - clear
+v - version
+r - toggle redraw mode, clearing the screen every time a new story is generated
+s - save a sentence
+sp - set a new save path, `./cahp1-save.txt` by default
+ctrl+c to exit
+"""
+
+colours = {
+	"reset": "\x1b[0m",
+	"bold": "\x1b[1m",
+	"green": "\x1b[32m",
+	"green": "\x1b[32;1m"
+}
