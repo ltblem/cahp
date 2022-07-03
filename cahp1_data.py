@@ -64,7 +64,8 @@ things = [
 	"city",
 	"trainer",
 	"Godlike being",
-	"programmer"
+	"programmer",
+	"Arch user"
 ]
 
 hasbeens = [
@@ -152,7 +153,8 @@ adjectives = [
 	"A handsome",
 	"A fearless",
 	"An extra-extra-extra large",
-	"An uncultured"
+	"An uncultured",
+	"An arrogant"
 ]
 	
 punctuation = [
@@ -287,7 +289,8 @@ writtenby_l = [
 	"The Great",
 	"Winston",
 	"Shnurdenburgh",
-	"Chestnutt"
+	"Chestnutt",
+	"Ray"
 ]
 
 tips = [
@@ -318,7 +321,10 @@ tips = [
 	"I added colours to Cahp1 recently, do you like it?",
 	"All this breaking news is hurting my brain!",
 	"I know a guy, who knows a guy, who knows a guy.",
-	"Technoblade never dies."
+	"Technoblade never dies.",
+	"Colourful words are always a good idea.",
+	"Colours are cool.",
+	"I use Arch btw."
 ]
 
 goodbies = [
@@ -328,7 +334,10 @@ goodbies = [
 	"See you!",
 	"Laters!",
 	"Hope you had fun!",
-	"Hope you enjoyed!"
+	"Hope you enjoyed!",
+	"Have a nice day!",
+	"Goodnight!",
+	"Good luck!"
 ]
 
 helppage = """
