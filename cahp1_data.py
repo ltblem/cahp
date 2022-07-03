@@ -50,7 +50,21 @@ things = [
 	"British Monarch",
 	"****head",
 	"paedophile",
-	"snail"
+	"snail",
+	"grandmother",
+	"grandfather",
+	"mother",
+	"father",
+	"shirt",
+	"governor",
+	"teacher",
+	"sister",
+	"brother",
+	"village",
+	"city",
+	"trainer",
+	"Godlike being",
+	"programmer"
 ]
 
 hasbeens = [
@@ -88,7 +102,8 @@ verbs = [
 	"cleaned",
 	"married",
 	"morbed",
-	"nibbled"
+	"nibbled",
+	"ratio'd"
 ]
 
 adjectives = [
@@ -130,11 +145,20 @@ adjectives = [
 	"A tiny",
 	"A small",
 	"A territorial",
-	"A super fast"
+	"A super fast",
+	"A complicated",
+	"An object-oriented",
+	"A keen",
+	"A handsome",
+	"A fearless",
+	"An extra-extra-extra large",
+	"An uncultured"
 ]
 	
 punctuation = [
 	"!",
+	".",
+	".",
 	".",
 	".",
 	"!?",
@@ -293,7 +317,8 @@ tips = [
 	"Working hard or hardly working?",
 	"I added colours to Cahp1 recently, do you like it?",
 	"All this breaking news is hurting my brain!",
-	"I know a guy, who knows a guy, who knows a guy."
+	"I know a guy, who knows a guy, who knows a guy.",
+	"Technoblade never dies."
 ]
 
 goodbies = [
