@@ -1,5 +1,9 @@
-from os import system
-input("Continue? [enter/ctrl+c] ")
-release = int(input("Enter cahp1 `release` number: "))
-system("pyinstaller --onefile -n cahp1-" + str(release) + " cahp1.py && echo 'Build completed, no shell errors.'")
-system("echo 'Finishing up...' && mv dist/cahp1-" + str(release) + " ./ && rm -r build && rmdir dist && rm cahp1-" + str(release) + ".spec && echo 'Finished.'")
+def build(release):
+	release = str(release)
+	from os import system
+	input("Continue? [enter/ctrl+c] ")
+	system("pyinstaller --onefile -n cahp1-" + release + " cahp1.py && echo 'Build completed, no shell errors.'")
+	system("echo 'Finishing up...' && mv dist/cahp1-" + release + " ./ && rm -r build && rmdir dist && rm cahp1-" + release + ".spec && echo 'Finished.'")
+
+if __name__ == "__main__":
+	build(input("Release number: "))

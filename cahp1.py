@@ -3,10 +3,11 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v78-r1"
-release = 1
+version = "c1v79-r1"
+release = 0
+#* If `release` is 0, it's a test build.
 
-import random
+import random, build
 from random import choice as rc
 from time import sleep as ts
 from os import name as sysname, system as ex
@@ -116,6 +117,9 @@ while True:
 			print("Saved.")
 		elif phraseinput == "sp":
 			savepath = input("Enter a new path: ")
+		elif phraseinput == "build":
+			build.build(release)
+			sysexit()
 		elif phraseinput == "":
 			continue
 		else:
