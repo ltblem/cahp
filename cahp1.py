@@ -3,9 +3,10 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v79-r1"
+version = "c1v79-r2"
 release = 0
 #* If `release` is 0, it's a test build.
+#* Latest release: 1 @ c1v77-r1
 
 import random, build
 from random import choice as rc
@@ -14,12 +15,10 @@ from os import name as sysname, system as ex
 from sys import exit as sysexit
 
 
-
 redrawMode = False
 savepath = "./cahp1-save.txt"
 premium = False #* This is completely fake, change to True if you find it annoying.
 infoStat = None
-moreInfo = False
 tipstat = True
 
 # Colours are now imported from cahp1_data.py
