@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v80-r1"
+version = "c1v80-r3"
 release = 0
 #* If `release` is 0, it's a test build.
 #* Latest release: 1 @ c1v77-r1
@@ -22,6 +22,7 @@ infoStat = None
 tipstat = True
 
 # Colours are now imported from cahp1_data.py
+#// colours = {}
 
 
 def clear():
@@ -49,7 +50,8 @@ def fin():
 
 if premium == False: punctuation.append(". Upgrade to premium to see the full story!")
 
-
+def default():
+	return colours["green"] + colours["bold"] + "---> " + colours["reset"] + colours["bold"] + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
 
 def setPhrase():
 	global infoStat
@@ -64,7 +66,7 @@ def setPhrase():
 		phrase = colours["green"] + colours["bold"] + "Tip #" + str(tipchoice) + ": " + colours["reset"] + tips[tipchoice]
 		infoStat = "promo"
 	elif choice == "story":
-		phrase = colours["green"] + colours["bold"] + "---> " + colours["reset"] + colours["bold"] + rc(adjectives) + " " + rc(things) + " " + rc(hasbeens) + " " + rc(verbs) + " by " + rc(adjectives).lower() + " " + rc(things) + rc(punctuation)
+		phrase = default()
 		infoStat = "availible"
 
 	return phrase
@@ -73,7 +75,7 @@ def setPhrase():
 
 def setInfo():
 	name = rc(writtenby_f) + " " + rc(writtenby_l)
-	info = "Written by " + name + " on " + rc(["January","February","March","April","May","June","July","August","September","October","November","December"]) + " " + str(random.randint(1, 31)) + ", " + str(random.randint(2019, 2021))
+	info = "Written by " + name + " on " + rc(["January","February","March","April","May","June","July","August","September","October","November","December"]) + " " + str(random.randint(1, 31)) + ", " + str(random.randint(2016, 2021))
 	return info
 
 def main():
@@ -81,6 +83,7 @@ def main():
 	global redrawMode
 	clear()
 	print("Cahp1 - A LetThereBeLemons creation\nPress h for help, enter for a new story.")
+	print("\n" + colours["green"] + colours["bold"] + rc(["Good evening paedophiles.", "I hope you're sitting comfortably.", "Morning all."]) + colours["reset"])
 
 	while True:
 		
