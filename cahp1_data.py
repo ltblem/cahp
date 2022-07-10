@@ -374,3 +374,7 @@ colours = {
 	"bold": "\x1b[1m",
 	"green": "\x1b[32m",
 }
+
+if __name__ == "__main__":
+	print("Run `python3 cahp1.py` to start.")
+	raise Exception ("This is a module, not a program.")
