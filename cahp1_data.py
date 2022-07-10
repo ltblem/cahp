@@ -10,7 +10,6 @@ things = [
 	"murderer",
 	"homosexual",
 	"trans guy",
-	"car",
 	"teenager",
 	"mum",
 	"terrorist",
@@ -65,7 +64,12 @@ things = [
 	"trainer",
 	"Godlike being",
 	"programmer",
-	"Arch user"
+	"Arch user",
+	"iPod",
+	"iPad",
+	"iPhone",
+	"penis face",
+	"politician"
 ]
 
 hasbeens = [
@@ -104,17 +108,14 @@ verbs = [
 	"married",
 	"morbed",
 	"nibbled",
-	"ratio'd"
+	"ratio'd",
+	"done good"
 ]
 
 adjectives = [
 	"A green",
 	"A mysterious",
 	"My",
-	"A",
-	"A",
-	"A",
-	"A",
 	"The neighbourhood",
 	"My friend's",
 	"An extremely hot",
@@ -133,7 +134,6 @@ adjectives = [
 	"A worthless",
 	"A flat",
 	"A slippery",
-	"A",
 	"A disabled",
 	"This here",
 	"That there",
@@ -154,7 +154,11 @@ adjectives = [
 	"A fearless",
 	"An extra-extra-extra large",
 	"An uncultured",
-	"An arrogant"
+	"An arrogant",
+	"An aristocratic",
+	"A penis-faced",
+	"A stupid",
+	"A snail-like"
 ]
 	
 punctuation = [
@@ -324,7 +328,16 @@ tips = [
 	"Technoblade never dies.",
 	"Colourful words are always a good idea.",
 	"Colours are cool.",
-	"I use Arch btw."
+	"I use Arch btw.",
+	"Old news is the best news.",
+	"I'm a big fan of the word `cahp`.",
+	"Ya like jazz?",
+	"I might start purposely adding bugs to my code to make it more interesting.",
+	"Like a story? Type `s` to save it!",
+	"You can always type `c` to clear the screen.",
+	"Type `r` to clear the screen every time you press enter, it's great!",
+	"You can type `sp` to change where stories are saved when you type `s`.",
+	"Did you know tha A squared plus B squared is C squared?",
 ]
 
 goodbies = [
@@ -358,5 +371,4 @@ colours = {
 	"reset": "\x1b[0m",
 	"bold": "\x1b[1m",
 	"green": "\x1b[32m",
-	"green": "\x1b[32;1m"
 }
