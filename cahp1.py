@@ -3,7 +3,7 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v79-r2"
+version = "c1v80-r1"
 release = 0
 #* If `release` is 0, it's a test build.
 #* Latest release: 1 @ c1v77-r1
@@ -50,8 +50,6 @@ def fin():
 if premium == False: punctuation.append(". Upgrade to premium to see the full story!")
 
 
-print("Cahp1 - A LetThereBeLemons creation\nPress h for help, enter for a new story.")
-
 
 def setPhrase():
 	global infoStat
@@ -78,53 +76,86 @@ def setInfo():
 	info = "Written by " + name + " on " + rc(["January","February","March","April","May","June","July","August","September","October","November","December"]) + " " + str(random.randint(1, 31)) + ", " + str(random.randint(2019, 2021))
 	return info
 
-while True:
-	
-	if redrawMode == True:
-		clear()
+def main():
 
-	print()
+	global redrawMode
+	clear()
+	print("Cahp1 - A LetThereBeLemons creation\nPress h for help, enter for a new story.")
+
+	while True:
+		
+		if redrawMode == True:
+			clear()
+
+		print()
+
+		try:
+
+			phrase = setPhrase()
+			info = setInfo()
+
+			if infoStat == "availible":
+				phraseinput = input(phrase + "\n" + colours["green"] + colours["bold"] + "   > " + colours["reset"] + info + " ")
+			elif infoStat == "me":
+				phraseinput = input(phrase + "\n" + colours["green"] + colours["bold"] + "   > " + colours["reset"] + "Written by me about ten seconds ago" + " ")
+			elif infoStat == "promo":
+				phraseinput = input(phrase + "\n" + colours["green"] + colours["bold"] + "   > " + colours["reset"] + " ")
+
+			if phraseinput == "v":
+				print("\nCahp1 version " + str(version))
+				print("Cahp1 - A random sentence generator.\nCreated by LetThereBeLemons")
+			elif phraseinput == "c":
+				clear()
+			elif phraseinput == "h":
+				print(helppage)
+			elif phraseinput == "r":
+				if redrawMode == True:
+					redrawMode = False
+				elif redrawMode == False:
+					redrawMode = True
+				else:
+					print("Error: What?! How?! Huh?!")
+			elif phraseinput == "s":
+				ex("echo '" + phrase + "' >> " + savepath)
+				print("Saved.")
+			elif phraseinput == "sp":
+				savepath = input("Enter a new path: ")
+			elif phraseinput == "build":
+				build.build(release)
+				sysexit()
+			elif phraseinput == "":
+				continue
+			else:
+				print("That's not a valid command. Type h for help.")
+			
+		except KeyboardInterrupt:
+			fin()
+		except EOFError:
+			fin()
+
+def init():
+	prompt = colours["green"] + colours["bold"] + "[Cahp1] " + colours["reset"]
+
+	print("Welcome to Cahp1! Type `h` for help.")
 
 	try:
-
-		phrase = setPhrase()
-		info = setInfo()
-
-		if infoStat == "availible":
-			phraseinput = input(phrase + "\n" + colours["green"] + colours["bold"] + "   > " + colours["reset"] + info + " ")
-		elif infoStat == "me":
-			phraseinput = input(phrase + "\n" + colours["green"] + colours["bold"] + "   > " + colours["reset"] + "Written by me about ten seconds ago" + " ")
-		elif infoStat == "promo":
-			phraseinput = input(phrase + "\n" + colours["green"] + colours["bold"] + "   > " + colours["reset"] + " ")
-
-		if phraseinput == "v":
-			print("\nCahp1 version " + str(version))
-			print("Cahp1 - A random sentence generator.\nCreated by LetThereBeLemons")
-		elif phraseinput == "c":
-			clear()
-		elif phraseinput == "h":
-			print(helppage)
-		elif phraseinput == "r":
-			if redrawMode == True:
-				redrawMode = False
-			elif redrawMode == False:
-				redrawMode = True
+		while True:
+			action = input(prompt)
+			if action == "h":
+				print("CAHPSHELL HELP:\nType `s` to start Cahp1.\nType `v` to see the version.")
+			elif action == "v":
+				print("Cahp1 version " + str(version))
+			elif action == "s":
+				main()
+			elif action == "":
+				continue
 			else:
-				print("Error: What?! How?! Huh?!")
-		elif phraseinput == "s":
-			ex("echo '" + phrase + "' >> " + savepath)
-			print("Saved.")
-		elif phraseinput == "sp":
-			savepath = input("Enter a new path: ")
-		elif phraseinput == "build":
-			build.build(release)
-			sysexit()
-		elif phraseinput == "":
-			continue
-		else:
-			print("That's not a valid command. Type h for help.")
-			
+				print("That's not a valid command. Type `h` for help.")
 	except KeyboardInterrupt:
 		fin()
 	except EOFError:
 		fin()
+
+
+if __name__ == "__main__":
+	init()
