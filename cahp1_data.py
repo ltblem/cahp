@@ -77,7 +77,8 @@ hasbeens = [
 	"has just been",
 	"was",
 	"was just",
-	"just got"
+	"just got",
+	"has officially"
 ]
 
 verbs = [
@@ -109,7 +110,8 @@ verbs = [
 	"morbed",
 	"nibbled",
 	"ratio'd",
-	"done good"
+	"done good",
+	"buggered"
 ]
 
 adjectives = [
