@@ -78,7 +78,6 @@ hasbeens = [
 	"was",
 	"was just",
 	"just got",
-	"has officially"
 ]
 
 verbs = [
