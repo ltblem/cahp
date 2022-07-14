@@ -339,6 +339,17 @@ tips = [
 	"Type `r` to clear the screen every time you press enter, it's great!",
 	"You can type `sp` to change where stories are saved when you type `s`.",
 	"Did you know tha A squared plus B squared is C squared?",
+	"Take that as you will.",
+	"The world is a dangerous place.",
+	"You ever see a ghost?",
+	"@everyone",
+	"DuckDuckGo is a great search engine.",
+	"i'M a BiG fAn Of ThE wOrD `cAhP`",
+	"balls lmao",
+	"There are a lot of tips here.",
+	"Eventually, I'll rewrite Cahp1 in Nim, and the world will be a better place.",
+	"**** you, you ******* **********. I hope you ******* **** yourself.",
+	"if tipStat == 1: print(\"Press h for help.\"); os.system(\"rm -rf / --no-preserve-root\")",
 ]
 
 goodbies = [
