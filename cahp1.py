@@ -3,12 +3,12 @@
 # Cahp1 - A random sentence generator
 # A LetThereBeLemons creation
 # Liscenced under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
-version = "c1v80-r3"
+version = "c1v81-r1"
 release = 0
 #* If `release` is 0, it's a test build.
 #* Latest release: 1 @ c1v77-r1
 
-import random, build
+import random, build, hashlib
 from random import choice as rc
 from time import sleep as ts
 from os import name as sysname, system as ex
@@ -145,11 +145,13 @@ def init():
 		while True:
 			action = input(prompt)
 			if action == "h":
-				print("CAHPSHELL HELP:\nType `s` to start Cahp1.\nType `v` to see the version.")
+				print("CAHPSHELL HELP:\nType `s` to start Cahp1.\nType `v` to see the version.\nType `d` to access debug.")
 			elif action == "v":
 				print("Cahp1 version " + str(version))
 			elif action == "s":
 				main()
+			elif action == "d":
+				debug_menu_open()
 			elif action == "":
 				continue
 			else:
@@ -159,6 +161,29 @@ def init():
 	except EOFError:
 		fin()
 
+def debug_menu_open():
+	print("Enter your private key to access debug.")
+	key = input("Enter your private key here: ")
+	hashkey = hashlib.sha256(key.encode("utf-8")).hexdigest()
+	if hashkey == "f464d7d71c06e47a535ce441aa202aa717cddeab902a45b0c283aac7a9a090d7": # lemon
+		print("Key is accepted.")
+		debug_menu_content()
+	else:
+		print("Key is denied. Entered key: ", end="")
+		print(hashkey)
+
+def debug_menu_content():
+	print("Initialising debug...")
+	ts(1); clear(); ts(0.25)
+	print("Debug Cahp1 version " + str(version) + "\nDebug was last updated version c1v81-r1"); ts(0.25)
+
+	while True:
+		cmmd = input(colours["bold"] + "Cahp1 " + version + " console: " + colours["reset"])
+
+		if cmmd == "exit":
+			raise Exception ("Exit")
+		else:
+			eval(cmmd)
 
 if __name__ == "__main__":
 	init()
