@@ -160,7 +160,8 @@ const adjectives = [
     "An aristocratic",
     "A penis-faced",
     "A stupid",
-    "A snail-like"
+    "A snail-like",
+    "An esoteric"
 ]
     
 const punctuation = [
