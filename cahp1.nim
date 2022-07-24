@@ -3,19 +3,25 @@
 
 #[ TODO:
     //  Simple phrase generation
-    *-  Program loop & input break
-    .-  Commands (v, h, c, r); Refer to data.nim helppage or .py app
-    .-  "Goodbies" (no error message on ctrl+c)
-    .-  TIPS!!!
+    *- Program loop & input break
+    .- Commands (v, h, c, r); Refer to data.nim helppage or .py app
+    .- "Goodbies" (no error message on ctrl+c)
+    *- TIPS!!!:
+        // Tip generation
+        .- Tip numbers
 ]#
 
-import std/random
+import std/random, std/unicode
 randomize()
 
 include data
 
-proc genPhrase(): string =
-    var phrase: string = cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " " & sample(adjectives) & " " & sample(things) & sample(punctuation) & creset
-    return phrase
+proc genPhrase(phrasetype: string): string =
+    if phrasetype == "s":
+        return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & sample(punctuation) & creset
+    elif phrasetype == "t":
+        return cgreen & cbold & "Tip: " & creset & cbold & sample(tips) & creset
 
-echo genPhrase()
+while true:
+    genPhrase( sample(["s", "s", "s", "t"]) ).echo()
+    var command = readLine(stdin)
