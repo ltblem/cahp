@@ -186,7 +186,8 @@ const punctuation = [
     "; Read on with premium!",
     "..? That's so weird!",
     ". Now that's a real one.",
-    ", like WTF!?"
+    ", like WTF!?",
+    ". There goes my faith in humanity!"
 ]
 
 const writtenby_f = [
