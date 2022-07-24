@@ -2,11 +2,11 @@
 # Liscensed under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
 
 #[ TODO:
-    - Phrase generation
-    - Program loop & input break
-    - Commands (v, h, c, r); Refer to data.nim helppage or .py app
-    - "Goodbies" (no error message on ctrl+c)
-    - TIPS!!!
+    //  Simple phrase generation
+    *-  Program loop & input break
+    .-  Commands (v, h, c, r); Refer to data.nim helppage or .py app
+    .-  "Goodbies" (no error message on ctrl+c)
+    .-  TIPS!!!
 ]#
 
 import std/random
