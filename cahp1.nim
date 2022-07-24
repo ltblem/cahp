@@ -6,9 +6,10 @@
     *- Program loop & input break
     .- Commands (v, h, c, r); Refer to data.nim helppage or .py app
     .- "Goodbies" (no error message on ctrl+c)
-    *- TIPS!!!:
+    *- TIPS:
         // Tip generation
         .- Tip numbers
+    .- Phrase info (author, date) <--- should be easy
 ]#
 
 import std/random, std/unicode
