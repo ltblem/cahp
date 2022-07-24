@@ -1,13 +1,21 @@
-
 # Cahp1 - A LetThereBeLemons creation
 # Liscensed under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
 
-import std/sequtils, std/random
+#[ TODO:
+    - Phrase generation
+    - Program loop & input break
+    - Commands (v, h, c, r); Refer to data.nim helppage or .py app
+    - "Goodbies" (no error message on ctrl+c)
+    - TIPS!!!
+]#
+
+import std/random
 randomize()
 
 include data
 
 proc genPhrase(): string =
-    return green , bold , "---> " , reset , bold , sample(adjectives) , " " , sample(things) , " " , sample(hasbeens) , " " , sample(verbs) , " by " , sample(adjectives).lower() , " " , sample(things) , sample(punctuation)
+    var phrase: string = cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " " & sample(adjectives) & " " & sample(things) & sample(punctuation) & creset
+    return phrase
 
-#TODO: MAKE IT WORK OH MY GOD I HATE IT
+echo genPhrase()

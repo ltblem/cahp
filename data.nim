@@ -1,6 +1,4 @@
-import std/sequtils
-
-var things = @[
+const things = [
     "can of coke",
     "cat",
     "car",
@@ -74,7 +72,7 @@ var things = @[
     "politician"
 ]
 
-var hasbeens = @[
+const hasbeens = [
     "has been",
     "has just been",
     "was",
@@ -83,7 +81,7 @@ var hasbeens = @[
     "has officially"
 ]
 
-var verbs = @[
+const verbs = [
     "stolen",
     "hit",
     "murdered",
@@ -116,7 +114,7 @@ var verbs = @[
     "buggered"
 ]
 
-var adjectives = @[
+const adjectives = [
     "A green",
     "A mysterious",
     "My",
@@ -165,7 +163,7 @@ var adjectives = @[
     "A snail-like"
 ]
     
-var punctuation = @[
+const punctuation = [
     "!",
     ".",
     ".",
@@ -191,7 +189,7 @@ var punctuation = @[
     ", like WTF!?"
 ]
 
-var writtenby_f = @[
+const writtenby_f = [
     "Bob",
     "William",
     "John",
@@ -262,7 +260,7 @@ var writtenby_f = @[
     "J. P."
 ]
 
-var writtenby_l = @[
+const writtenby_l = [
     "Robinson",
     "Parker",
     "Smith",
@@ -301,7 +299,7 @@ var writtenby_l = @[
     "Ray"
 ]
 
-var tips = @[
+const tips = [
     "Dont be an asshole.",
     "Type `h` for some help.",
     "Type `v` to see the version.",
@@ -344,7 +342,7 @@ var tips = @[
     "Did you know tha A squared plus B squared is C squared?",
 ]
 
-var goodbies = @[
+const goodbies = [
     "Goodbye!",
     "Bye!",
     "See you later!",
@@ -373,7 +371,7 @@ ctrl+c to exit
 """
 ]#
 
-var
-    reset: string = "\x1b[0m"
-    bold: string = "\x1b[1m"
-    green: string = "\x1b[32m"
+const
+    creset: string = "\x1b[0m"
+    cbold: string = "\x1b[1m"
+    cgreen: string = "\x1b[32m"
