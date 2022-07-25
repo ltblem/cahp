@@ -28,7 +28,10 @@ proc exit() {.noconv.} =
 setControlCHook(exit)
 
 proc clear() {.noconv.} =
-    discard execShellCmd("clear")
+    when system.hostOS == "windows":
+        discard execShellCmd("cls")
+    else:
+        discard execShellCmd("clear")
 
 #! === Phrase generation === !#
 
