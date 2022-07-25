@@ -367,20 +367,28 @@ const goodbies = [
     "Good luck!"
 ]
 
-#[
-helppage = """
-Cahp1 - A random sentence generator
-A LetThereBeLemons creation
----------------------------
-enter - generate new story
+const helppage: string = """
+Cahp1 - A LetThereBeLemons Creation
+=====
+enter - generate new phrase
 h - this help page
-c - clear
-v - version
-r - toggle redraw mode, clearing the screen every time a new story is generated
-s - save a sentence
-sp - set a new save path, `./cahp1-save.txt` by default
-ctrl+c to exit
+
+CTRL+C to exit
 """
+
+#[
+Old helppage:
+    Cahp1 - A random sentence generator
+    A LetThereBeLemons creation
+    ---------------------------
+    enter - generate new story
+    h - this help page
+    c - clear
+    v - version
+    r - toggle redraw mode, clearing the screen every time a new story is generated
+    s - save a sentence
+    sp - set a new save path, `./cahp1-save.txt` by default
+    ctrl+c to exit
 ]#
 
 const
