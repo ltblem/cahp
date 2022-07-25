@@ -1,2 +1,3 @@
 nim c -d:release --app:console -o:"./release/cahp" "src/cahp.nim"
-# Change -d:release to -d:minigw to build a Windows binary.
+# For a Windows binary (currently doesn't work very well):
+#: nim c -d:minigw --app:console -o:"./release/cahp.exe" "src/cahp.nim"
