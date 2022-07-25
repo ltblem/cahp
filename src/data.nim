@@ -325,7 +325,7 @@ const tips = [
     "#22: I stopped updating cahp2 because I found it boring.",
     "#23: Bored yet? Or hardly started?",
     "#24: Working hard or hardly working?",
-    "#25: I added colours to Cahp1 recently, do you like it?",
+    "#25: I added colours to Cahp recently, do you like it?",
     "#26: All this breaking news is *breaking* my brain! Haha!",
     "#27: I know a guy, who knows a guy, who knows a guy.",
     "#28: Technoblade never dies.",
@@ -349,11 +349,11 @@ const tips = [
     "#46: i'M a BiG fAn Of ThE wOrD `cAhP`",
     "#47: balls lmao",
     "#48: There are a lot of tips here.",
-    "#49: Eventually, I'll rewrite Cahp1 in Nim, and the world will be a better place. UPDATE: I rewrote Cahp1 in Nim, and the world is a better place.",
+    "#49: Eventually, I'll rewrite Cahp in Nim, and the world will be a better place. UPDATE: I rewrote Cahp in Nim, and the world is a better place.",
     "#50: **** you, you ******* **********. I hope you ******* **** yourself.",
     "#51: SPARE THE SYMPATHY",
     "#52: What is this mysterious Premium everyone keeps talking about?",
-    "#53: Premium used to exist in the Python version of Cahp1, but it doesn't anymore."
+    "#53: Premium used to exist in the Python version of Cahp, but it doesn't anymore."
 ]
 
 const goodbies = [
@@ -385,7 +385,7 @@ const months = [
 ]
 
 const helppage: string = """
-Cahp1 - A LetThereBeLemons Creation
+Cahp - A LetThereBeLemons Creation
 =====
 enter - generate new phrase
 h - this help page
@@ -396,7 +396,7 @@ CTRL+C to exit
 
 #[
 Old helppage:
-    Cahp1 - A random sentence generator
+    Cahp - A random sentence generator
     A LetThereBeLemons creation
     ---------------------------
     enter - generate new story
@@ -405,7 +405,7 @@ Old helppage:
     v - version
     r - toggle redraw mode, clearing the screen every time a new story is generated
     s - save a sentence
-    sp - set a new save path, `./cahp1-save.txt` by default
+    sp - set a new save path, `./cahp-save.txt` by default
     ctrl+c to exit
 ]#
 
