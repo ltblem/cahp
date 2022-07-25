@@ -12,6 +12,8 @@
     .- Phrase info (author, date) <--- should be easy
 ]#
 
+#! === Imports === !#
+
 import std/random, std/unicode, std/rdstdin, std/os
 # std/unicode is for the toLower() procedure
 # std/rdstdin is for readLineFromStdin()
@@ -19,6 +21,8 @@ import std/random, std/unicode, std/rdstdin, std/os
 randomize()
 
 include data
+
+#! === Basic Procedures === !#
 
 proc exit() {.noconv.} =
     echo "\n" & cgreen & cbold & sample(goodbies) & creset
@@ -28,11 +32,15 @@ setControlCHook(exit)
 proc clear() {.noconv.} =
     discard execShellCmd("clear")
 
+#! === Phrase generation === !#
+
 proc genPhrase(phrasetype: string): string =
     if phrasetype == "s":
         return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & sample(punctuation) & creset
     elif phrasetype == "t":
         return cgreen & cbold & "Tip: " & creset & cbold & sample(tips) & creset
+
+#! === Program Loop === !#
 
 const inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
 
