@@ -6,9 +6,7 @@
     // Program loop & input break
     *- Commands (v, h, c, r); Refer to data.nim helppage or .py app
     *- "Goodbies" (no error message on ctrl+c)
-    .- TIPS:
-        // Tip generation
-        .- Tip numbers
+    // TIPS
     .- Phrase info (author, date) <--- should be easy
 ]#
 
@@ -38,11 +36,14 @@ proc genPhrase(phrasetype: string): string =
     if phrasetype == "s":
         return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & sample(punctuation) & creset
     elif phrasetype == "t":
-        return cgreen & cbold & "Tip: " & creset & cbold & sample(tips) & creset
+        return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
 
-#! === Program Loop === !#
+#! === Variables === !#
 
 const inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
+var redrawMode: bool = false
+
+#! === Program Loop === !#
 
 while true:
     var command: string
@@ -58,7 +59,16 @@ while true:
         echo helppage
     elif command == "c":
         clear()
+    elif command == "r":
+        if redrawMode == true:
+            redrawMode = false
+            echo cgreen & cbold & "Redraw mode disabled." & creset
+        elif redrawMode == false:
+            redrawMode = true
+            echo cgreen & cbold & "Redraw mode enabled." & creset
     elif command == "":
+        if redrawMode == true:
+            clear()
         continue
     else:
         echo "That's not a valid command."
