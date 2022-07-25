@@ -4,4 +4,4 @@ Cahp generates a random phrase, styled a bit like a news article. It also random
 
 ## Installation
 
-Run `cahp1.py` with Python.
+You can either download a pre-built binary from the Releases page, or you can build your own by installing Nim and running `install.sh`.
