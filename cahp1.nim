@@ -33,8 +33,13 @@ proc genPhrase(phrasetype: string): string =
 const inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
 
 while true:
+    var command: string
+
     genPhrase( sample(["s", "s", "s", "t"]) ).echo()
-    var command = readLineFromStdin(inputPrompt)
+    try:
+        command = readLineFromStdin(inputPrompt)
+    except IOError:
+        exit()
     creset.echo
 
     if command == "h":
