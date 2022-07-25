@@ -372,6 +372,7 @@ Cahp1 - A LetThereBeLemons Creation
 =====
 enter - generate new phrase
 h - this help page
+c - clear the screen
 
 CTRL+C to exit
 """

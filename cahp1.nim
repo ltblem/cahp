@@ -12,9 +12,10 @@
     .- Phrase info (author, date) <--- should be easy
 ]#
 
-import std/random, std/unicode, std/rdstdin
+import std/random, std/unicode, std/rdstdin, std/os
 # std/unicode is for the toLower() procedure
 # std/rdstdin is for readLineFromStdin()
+# std/os if for execShellCmd
 randomize()
 
 include data
@@ -23,6 +24,9 @@ proc exit() {.noconv.} =
     echo "\n" & cgreen & cbold & sample(goodbies) & creset
     quit()
 setControlCHook(exit)
+
+proc clear() {.noconv.} =
+    discard execShellCmd("clear")
 
 proc genPhrase(phrasetype: string): string =
     if phrasetype == "s":
@@ -44,6 +48,8 @@ while true:
 
     if command == "h":
         echo helppage
+    elif command == "c":
+        clear()
     elif command == "":
         continue
     else:
