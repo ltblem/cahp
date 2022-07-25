@@ -1,15 +1,6 @@
 # Cahp1 - A LetThereBeLemons creation
 # Liscensed under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
 
-#[ TODO:
-    //  Simple phrase generation
-    // Program loop & input break
-    *- Commands (v, h, c, r); Refer to data.nim helppage or .py app
-    *- "Goodbies" (no error message on ctrl+c)
-    // TIPS
-    .- Phrase info (author, date) <--- should be easy
-]#
-
 #! === Imports === !#
 
 import std/random, std/unicode, std/rdstdin, std/os
@@ -41,6 +32,12 @@ proc genPhrase(phrasetype: string): string =
     elif phrasetype == "t":
         return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
 
+proc genInfo(): string =
+    var name: string = sample(writtenby_f) & " " & sample(writtenby_l)
+    var info: string = "Written by " & name & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+    return info
+
+
 #! === Variables === !#
 
 const inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
@@ -51,7 +48,12 @@ var redrawMode: bool = false
 while true:
     var command: string
 
-    genPhrase( sample(["s", "s", "s", "t"]) ).echo()
+    var ptype: string = sample(["s", "s", "s", "s", "t"])
+    genPhrase(ptype).echo()
+    
+    if ptype == "s":
+        genInfo().echo()
+
     try:
         command = readLineFromStdin(inputPrompt)
     except IOError:

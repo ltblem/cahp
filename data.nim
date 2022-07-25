@@ -367,6 +367,21 @@ const goodbies = [
     "Good luck!"
 ]
 
+const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+]
+
 const helppage: string = """
 Cahp1 - A LetThereBeLemons Creation
 =====
