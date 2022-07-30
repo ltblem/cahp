@@ -300,6 +300,9 @@ const writtenby_l = [
     "Ray"
 ]
 
+proc genName(): string =
+    return sample(writtenby_f) & " " & sample(writtenby_l)
+
 const tips = [
     "#1: Dont be an asshole.",
     "#2: Type `h` for some help.",

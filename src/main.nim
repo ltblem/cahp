@@ -9,7 +9,7 @@ import std/random, std/unicode, std/rdstdin, std/os
 # std/os if for execShellCmd
 randomize()
 
-include data
+include config, data
 
 #! === Basic procs === !#
 proc exit() {.noconv.} =
@@ -24,7 +24,6 @@ proc clear() {.noconv.} =
         discard execShellCmd("clear")
 
 #! === Phrase generation === !#
-# Most of this is done by phrasegen.nim
 
 proc genPhrase(phrasetype: string): string =
     if phrasetype == "s":
@@ -33,8 +32,7 @@ proc genPhrase(phrasetype: string): string =
         return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
 
 proc genInfo(): string =
-    var name: string = sample(writtenby_f) & " " & sample(writtenby_l)
-    var info: string = "Written by " & name & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+    var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
     return info
 
 
@@ -47,8 +45,11 @@ var redrawMode: bool = false
 
 while true:
     var command: string
-
-    var ptype: string = sample(["s", "s", "s", "s", "t"])
+    var ptype: string
+    if config_allowTips == true:
+        ptype = sample(["s", "s", "s", "s", "t"])
+    elif config_allowTips == false:
+        ptype = "s"
     genPhrase(ptype).echo()
     
     if ptype == "s":

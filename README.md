@@ -11,3 +11,4 @@ You can either download a pre-built binary from the Releases page, or you can bu
 (Still in development)
 
 [//]: # (The idea behind Modes is that you can generate phrases with different formats, or with a completely random format.)
+[//]: # (As this has evolved, it has become more of a test for a 'configs' feature.)
