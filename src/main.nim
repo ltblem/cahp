@@ -3,7 +3,7 @@
 
 #! === Imports === !#
 
-import std/random, std/unicode, std/rdstdin, std/os
+import std/random, std/unicode, std/rdstdin, std/os, std/sequtils
 # std/unicode is for the toLower() procedure
 # std/rdstdin is for readLineFromStdin()
 # std/os if for execShellCmd
@@ -41,13 +41,22 @@ proc genInfo(): string =
 const inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
 var redrawMode: bool = false
 
+# Setting the tip frequency based on config
+var tipchoice: seq[string]
+for i in countup(1, config_tipFrequency):
+    tipchoice = concat(tipchoice, @["t"])
+for i in countup(config_tipFrequency + 1, 5):
+    tipchoice = concat(tipchoice, @["s"])
+if config_enableDebug == true:
+    echo tipchoice
+
 #! === Program Loop === !#
 
 while true:
     var command: string
     var ptype: string
     if config_allowTips == true:
-        ptype = sample(["s", "s", "s", "s", "t"])
+        ptype = sample(tipchoice)
     elif config_allowTips == false:
         ptype = "s"
     genPhrase(ptype).echo()
