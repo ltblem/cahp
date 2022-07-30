@@ -9,14 +9,26 @@ import std/random, std/unicode, std/rdstdin, std/os
 # std/os if for execShellCmd
 randomize()
 
-include data, phrasegen, bprocs
+include data
+
+#! === Basic procs === !#
+proc exit() {.noconv.} =
+    echo "\n" & cgreen & cbold & sample(goodbies) & creset
+    quit()
+setControlCHook(exit)
+
+proc clear() {.noconv.} =
+    when system.hostOS == "windows":
+        discard execShellCmd("cls")
+    else:
+        discard execShellCmd("clear")
 
 #! === Phrase generation === !#
 # Most of this is done by phrasegen.nim
 
 proc genPhrase(phrasetype: string): string =
     if phrasetype == "s":
-        return genBasic().genComplex()
+        return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & sample(punctuation) & creset
     elif phrasetype == "t":
         return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
 
