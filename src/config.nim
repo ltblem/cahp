@@ -41,6 +41,17 @@ const config_allowDates: int = 1
 #? Values: 1, 0
 #? Default: 1
 
+#! Phrases
+const config_allowNameNouns: int = 1
+# This option allows nouns to sometimes be randomly generated names.
+#? Values: 1, 0
+#? Default: 1
+
+const config_nameNounsFrequency: int = 1 # /5
+# This option changes how many times out of 5 a name is used instead of a regular noun.
+# Only effective if config_allowNameNouns is true
+#? Values: 1-5
+#? Default: 1
 
 
 

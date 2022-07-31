@@ -69,12 +69,28 @@ const things = [
     "iPad",
     "iPhone",
     "penis face",
-    "politician"
+    "politician",
+    "absolute legend"
+]
+
+const namepref = [
+    "Someone named",
+    "A person named",
+    "Someone called",
+    "A person called",
+    "My friend",
+    "My colleague",
+    "This random joker named",
+    "This random joker called",
+    "An individual named",
+    "An individual called",
+    "A certain individual that goes by the name of"
 ]
 
 const hasbeens = [
     "has been",
     "has just been",
+    "has just gotten",
     "was",
     "was just",
     "just got"
@@ -110,7 +126,15 @@ const verbs = [
     "nibbled",
     "ratio'd",
     "done good",
-    "buggered"
+    "buggered",
+    "found out",
+    "KO'd",
+    "severely injured",
+    "cut open",
+    "sliced open",
+    "chopped down the middle",
+    "hit right where it hurts",
+    "beaten"
 ]
 
 const adjectives = [
@@ -160,11 +184,14 @@ const adjectives = [
     "A penis-faced",
     "A stupid",
     "A snail-like",
-    "An esoteric"
+    "An esoteric",
+    "A gay couple consisting of a man and this",
+    "A gay couple consisting of a woman and this"
 ]
     
 const punctuation = [
     "!",
+    ".",
     ".",
     ".",
     ".",
@@ -187,7 +214,9 @@ const punctuation = [
     "..? That's so weird!",
     ". Now that's a real one.",
     ", like WTF!?",
-    ". There goes my faith in humanity!"
+    ". There goes my faith in humanity!",
+    ", like can you be more stupid?",
+    ". Pfft."
 ]
 
 const writtenby_f = [
@@ -258,7 +287,8 @@ const writtenby_f = [
     "Z.",
     "Purbyfurk",
     "Bilbo",
-    "J. P."
+    "J. P.",
+    "Jackson"
 ]
 
 const writtenby_l = [
@@ -356,7 +386,8 @@ const tips = [
     "#50: **** you, you ******* **********. I hope you ******* **** yourself.",
     "#51: SPARE THE SYMPATHY",
     "#52: What is this mysterious Premium everyone keeps talking about?",
-    "#53: Premium used to exist in the Python version of Cahp, but it doesn't anymore."
+    "#53: Premium used to exist in the Python version of Cahp, but it doesn't anymore.",
+    "#54: https://github.com/ltblem/cahp"
 ]
 
 const goodbies = [
@@ -369,7 +400,12 @@ const goodbies = [
     "Hope you enjoyed!",
     "Have a nice day!",
     "Goodnight!",
-    "Good luck!"
+    "Good luck!",
+    "See ya!",
+    "Cheers!",
+    "Cheerio!",
+    "See you later, alligator!",
+    "In a while, crocodile!"
 ]
 
 const months = [
