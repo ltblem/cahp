@@ -3,13 +3,22 @@
 
 #! === Imports === !#
 
-import std/random, std/unicode, std/rdstdin, std/os, std/sequtils
+import std/random, std/unicode, std/rdstdin, std/os, std/sequtils, std/tables
 # std/unicode is for the toLower() procedure
 # std/rdstdin is for readLineFromStdin()
 # std/os if for execShellCmd
+# std/tables is for table management
 randomize()
 
 include config, data
+
+#! === Initializing config === !#
+var configKeys: array = ["allowTips", "tipFrequency", "enableDebug"]
+var configVals: array = [config_allowTips, config_tipFrequency, config_enableDebug]
+var config = initTable[string, int]()
+for pairs in zip(configKeys, configVals):
+    var (key, val) = pairs
+    config[key] = val
 
 #! === Basic procs === !#
 proc exit() {.noconv.} =
@@ -43,11 +52,11 @@ var redrawMode: bool = false
 
 # Setting the tip frequency based on config
 var tipchoice: seq[string]
-for i in countup(1, config_tipFrequency):
+for i in countup(1, config["tipFrequency"]):
     tipchoice = concat(tipchoice, @["t"])
-for i in countup(config_tipFrequency + 1, 5):
+for i in countup(config["tipFrequency"] + 1, 5):
     tipchoice = concat(tipchoice, @["s"])
-if config_enableDebug == true:
+if config["enableDebug"] == 1:
     echo tipchoice
 
 #! === Program Loop === !#
@@ -55,9 +64,9 @@ if config_enableDebug == true:
 while true:
     var command: string
     var ptype: string
-    if config_allowTips == true:
+    if config["allowTips"] == 1:
         ptype = sample(tipchoice)
-    elif config_allowTips == false:
+    elif config["allowTips"] == 0:
         ptype = "s"
     genPhrase(ptype).echo()
     
