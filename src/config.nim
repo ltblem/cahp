@@ -9,6 +9,7 @@ const config_allowTips: int = 1
 #? Values: 1, 0
 #? Default: 1
 
+#* Frequencies temporarily disabled.
 const config_tipFrequency: int = 1 # /5
 # This option changes how many times out of 5 a tip is generated.
 # Only effective if config_allowTips is true.
@@ -53,6 +54,23 @@ const config_nameNounsFrequency: int = 1 # /5
 #? Values: 1-5
 #? Default: 1
 
+#! Cats
+const config_allowCats: int = 1
+# This options changes whether cats are sometimes displayed.
+# A named cat will appear instead of a regular phrase.
+# This requires you to have a software capable of rendering images.
+# If you'd like to do this inside the console, I'd recommend something like icat.
+# This option is off by default to force you to modify the rendering software to your liking.
+# You'll also need a software like wget to download the images.
+#? Values: 1, 0
+#? Default: 0
+
+#* Frequencies temporarily disabled.
+const config_catFrequency: int = 3 # /5
+# This option changes how many times out of 5 a cat is used instead of a regular phrase if a tip doesn't occur.
+# Only effective if config_allowCats is true
+#? Values: 1-5
+#? Default: 1
 
 
 #! Debug

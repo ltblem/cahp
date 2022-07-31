@@ -1,6 +1,8 @@
 # Cahp - A LetThereBeLemons creation
 # Liscensed under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
 
+#* Program currently requires wget and icat to run, and must be run on a Linux machine.
+
 #! === Imports === !#
 
 import std/random, std/unicode, std/rdstdin, std/os, std/sequtils, std/tables
@@ -13,8 +15,8 @@ randomize()
 include config, data
 
 #! === Initializing config === !#
-var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "enableDebug"]
-var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_enableDebug]
+var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "allowCats", "catFrequency", "enableDebug"]
+var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_allowCats, config_catFrequency, config_enableDebug]
 
 var config = initTable[string, int]()
 for pairs in zip(configKeys, configVals):
@@ -48,6 +50,10 @@ if config["allowNameNouns"] > 1 or config["allowNameNouns"] < 0:
     invalidConfig("allowNameNouns")
 if config["nameNounsFrequency"] > 5 or config["nameNounsFrequency"] < 1:
     invalidConfig("nameNounsFrequency")
+if config["allowCats"] > 1 or config["allowCats"] < 0:
+    invalidConfig("allowCats")
+if config["catFrequency"] > 5 or config["catFrequency"] < 1:
+    invalidConfig("catFrequency")
 if config["enableDebug"] > 1 or config["enableDebug"] < 0:
     invalidConfig("enableDebug")
 
@@ -62,6 +68,18 @@ proc clear() {.noconv.} =
         discard execShellCmd("cls")
     else:
         discard execShellCmd("clear")
+
+#! === Cat generation === !#
+proc catGen() {.noconv.} =
+    echo cgreen & cbold & "Generating cat..." & creset
+    var dimx: int = 100
+    var dimy: int = 100
+    var url: string = "http://theoldreader.com/kittens/" & $dimx & "/" & $dimy
+    var imgsft: string = "icat -m both "
+    discard execShellCmd("wget -q -O cat.jpg " & url)
+    discard execShellCmd(imgsft & "cat.jpg")
+    discard execShellCmd("rm cat.jpg")
+
 
 #! === Phrase generation === !#
 
@@ -82,6 +100,9 @@ proc genPhrase(phrasetype: string): string =
             return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & sample(punctuation) & creset
     elif phrasetype == "t":
         return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
+    elif phrasetype == "c":
+        catGen()
+        return ""
 
 proc genInfo(): string =
     if config["allowInfo"] == 1:
@@ -112,13 +133,17 @@ var redrawMode: bool = false
 while true:
     var command: string
     var ptype: string
-    if config["allowTips"] == 1:
-        if rand(1..5) <= config["tipFrequency"]:
-            ptype = "t"
-        else:
-            ptype = "s"
-    elif config["allowTips"] == 0:
+    case rand(1..3)
+    of 1:
         ptype = "s"
+    of 2:
+        ptype = "t"
+    of 3:
+        ptype = "c"
+    else:
+        echo "Error with random generation."
+        quit(1)
+
     genPhrase(ptype).echo()
     
     if ptype == "s":
