@@ -3,13 +3,26 @@
 
 #! === Imports === !#
 
-import std/random, std/unicode, std/rdstdin, std/os
+import std/random, std/unicode, std/rdstdin, std/os, std/sequtils, std/tables
 # std/unicode is for the toLower() procedure
 # std/rdstdin is for readLineFromStdin()
 # std/os if for execShellCmd
+# std/tables is for table management
 randomize()
 
-include data
+include config, data
+
+#! === Initializing config === !#
+#TODO: Add checks to confirm given values are valid.
+var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "enableDebug"]
+var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates,config_enableDebug]
+var config = initTable[string, int]()
+for pairs in zip(configKeys, configVals):
+    var (key, val) = pairs
+    config[key] = val
+
+if config["enableDebug"] == 1:
+    echo config
 
 #! === Basic procs === !#
 proc exit() {.noconv.} =
@@ -24,7 +37,6 @@ proc clear() {.noconv.} =
         discard execShellCmd("clear")
 
 #! === Phrase generation === !#
-# Most of this is done by phrasegen.nim
 
 proc genPhrase(phrasetype: string): string =
     if phrasetype == "s":
@@ -33,9 +45,22 @@ proc genPhrase(phrasetype: string): string =
         return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
 
 proc genInfo(): string =
-    var name: string = sample(writtenby_f) & " " & sample(writtenby_l)
-    var info: string = "Written by " & name & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
-    return info
+    if config["allowInfo"] == 1:
+        if config["allowNames"] == 1 and config["allowDates"] == 1:
+            var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+            return info
+        elif config["allowNames"] == 1 and config["allowDates"] == 0:
+            var info: string = "Written by " & genName()
+            return info
+        elif config["allowNames"] == 0 and config["allowDates"] == 1:
+            var info: string = "Written on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+            return info
+        elif config["allowNames"] == 0 and config["allowDates"] == 0:
+            return ""
+    elif config["allowInfo"] == 0:
+        return ""
+#//var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+#//return info
 
 
 #! === Variables === !#
@@ -43,12 +68,24 @@ proc genInfo(): string =
 const inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
 var redrawMode: bool = false
 
+# Setting the tip frequency based on config
+var tipchoice: seq[string]
+for i in countup(1, config["tipFrequency"]):
+    tipchoice = concat(tipchoice, @["t"])
+for i in countup(config["tipFrequency"] + 1, 5):
+    tipchoice = concat(tipchoice, @["s"])
+if config["enableDebug"] == 1:
+    echo tipchoice
+
 #! === Program Loop === !#
 
 while true:
     var command: string
-
-    var ptype: string = sample(["s", "s", "s", "s", "t"])
+    var ptype: string
+    if config["allowTips"] == 1:
+        ptype = sample(tipchoice)
+    elif config["allowTips"] == 0:
+        ptype = "s"
     genPhrase(ptype).echo()
     
     if ptype == "s":

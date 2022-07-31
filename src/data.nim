@@ -300,6 +300,9 @@ const writtenby_l = [
     "Ray"
 ]
 
+proc genName(): string =
+    return sample(writtenby_f) & " " & sample(writtenby_l)
+
 const tips = [
     "#1: Dont be an asshole.",
     "#2: Type `h` for some help.",
@@ -390,6 +393,7 @@ Cahp - A LetThereBeLemons Creation
 enter - generate new phrase
 h - this help page
 c - clear the screen
+r - toggle redraw mode, clearing the screen every time a new story is generated
 
 CTRL+C to exit
 """
