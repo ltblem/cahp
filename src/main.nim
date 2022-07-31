@@ -13,12 +13,16 @@ randomize()
 include config, data
 
 #! === Initializing config === !#
-var configKeys: array = ["allowTips", "tipFrequency", "enableDebug"]
-var configVals: array = [config_allowTips, config_tipFrequency, config_enableDebug]
+#TODO: Add checks to confirm given values are valid.
+var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "enableDebug"]
+var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates,config_enableDebug]
 var config = initTable[string, int]()
 for pairs in zip(configKeys, configVals):
     var (key, val) = pairs
     config[key] = val
+
+if config["enableDebug"] == 1:
+    echo config
 
 #! === Basic procs === !#
 proc exit() {.noconv.} =
@@ -41,8 +45,22 @@ proc genPhrase(phrasetype: string): string =
         return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
 
 proc genInfo(): string =
-    var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
-    return info
+    if config["allowInfo"] == 1:
+        if config["allowNames"] == 1 and config["allowDates"] == 1:
+            var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+            return info
+        elif config["allowNames"] == 1 and config["allowDates"] == 0:
+            var info: string = "Written by " & genName()
+            return info
+        elif config["allowNames"] == 0 and config["allowDates"] == 1:
+            var info: string = "Written on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+            return info
+        elif config["allowNames"] == 0 and config["allowDates"] == 0:
+            return ""
+    elif config["allowInfo"] == 0:
+        return ""
+#//var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+#//return info
 
 
 #! === Variables === !#
