@@ -15,8 +15,8 @@ randomize()
 include config, data
 
 #! === Initializing config === !#
-var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "allowCats", "catFrequency", "enableDebug"]
-var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_allowCats, config_catFrequency, config_enableDebug]
+var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "allowCats", "catFrequency", "boldCats", "enableDebug"]
+var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_allowCats, config_catFrequency, config_boldCats, config_enableDebug]
 
 var config = initTable[string, int]()
 for pairs in zip(configKeys, configVals):
@@ -38,7 +38,7 @@ proc invalidConfig(configIssue: string) {.noconv.} =
 # === Check configs are valid === #
 if config["allowTips"] > 1 or config["allowTips"] < 0:
     invalidConfig("allowTips")
-if config["tipFrequency"] > 5 or config["tipFrequency"] < 1:
+if config["tipFrequency"] > 10 or config["tipFrequency"] < 1:
     invalidConfig("tipFrequency")
 if config["allowInfo"] > 1 or config["allowInfo"] < 0:
     invalidConfig("allowInfo")
@@ -52,10 +52,12 @@ if config["nameNounsFrequency"] > 5 or config["nameNounsFrequency"] < 1:
     invalidConfig("nameNounsFrequency")
 if config["allowCats"] > 1 or config["allowCats"] < 0:
     invalidConfig("allowCats")
-if config["catFrequency"] > 5 or config["catFrequency"] < 1:
+if config["catFrequency"] > 10 or config["catFrequency"] < 1:
     invalidConfig("catFrequency")
 if config["enableDebug"] > 1 or config["enableDebug"] < 0:
     invalidConfig("enableDebug")
+if config["catFrequency"] + config["tipFrequency"] > 10:
+    invalidConfig("tipFrequency + catFrequency")
 
 #! === Basic procs === !#
 proc exit() {.noconv.} =
@@ -69,19 +71,17 @@ proc clear() {.noconv.} =
     else:
         discard execShellCmd("clear")
 
-#! === Cat generation === !#
-proc catGen() {.noconv.} =
-    echo cgreen & cbold & "Generating cat..." & creset
-    var dimx: int = 100
-    var dimy: int = 100
-    var url: string = "http://theoldreader.com/kittens/" & $dimx & "/" & $dimy
-    var imgsft: string = "icat -m both "
-    discard execShellCmd("wget -q -O cat.jpg " & url)
-    discard execShellCmd(imgsft & "cat.jpg")
-    discard execShellCmd("rm cat.jpg")
-
-
 #! === Phrase generation === !#
+
+proc genCat(): string =
+    var name: string = cbold & sample(catnames_f) & " " & sample(catnames_l) & creset
+    var cat: string
+    if config["boldCats"] == 1:
+        cat = sample(catcolours) & cbold & sample(cats) & creset
+    elif config["boldCats"] == 0:
+        cat = sample(catcolours) & sample(cats) & creset
+    return cat & "\n" & name
+
 
 proc genPhrase(phrasetype: string): string =
     if phrasetype == "s":
@@ -101,7 +101,7 @@ proc genPhrase(phrasetype: string): string =
     elif phrasetype == "t":
         return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
     elif phrasetype == "c":
-        catGen()
+        echo genCat()
         return ""
 
 proc genInfo(): string =
@@ -119,8 +119,6 @@ proc genInfo(): string =
             return ""
     elif config["allowInfo"] == 0:
         return ""
-#//var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
-#//return info
 
 
 #! === Variables === !#
@@ -128,21 +126,27 @@ proc genInfo(): string =
 const inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
 var redrawMode: bool = false
 
+#! === Random generation === !#
+var choices: seq[string] = @[]
+
+for i in countUp(1, config["tipFrequency"]):
+    choices = concat(choices, @["t"])
+for i in countUp(config["tipFrequency"], config["catFrequency"] + config["tipFrequency"]):
+    choices = concat(choices, @["c"])
+for i in countUp(config["catFrequency"] + config["tipFrequency"], 10):
+    choices = concat(choices, @["s"])
+
+shuffle(choices)
+if config["enableDebug"] == 1:
+    echo "Choices: " & choices
+
 #! === Program Loop === !#
 
 while true:
     var command: string
     var ptype: string
-    case rand(1..3)
-    of 1:
-        ptype = "s"
-    of 2:
-        ptype = "t"
-    of 3:
-        ptype = "c"
-    else:
-        echo "Error with random generation."
-        quit(1)
+
+    ptype = sample(choices)
 
     genPhrase(ptype).echo()
     
