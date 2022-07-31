@@ -1,11 +1,7 @@
 # This is a configuration file for you to edit before compilation.
 # The defaults provided here are the same ones used in the release binaries.
 # You can change them to customize your build.
-
 # Note that 1 = true and 0 = false
-
-#* There are currently no checks that these values are valid, so
-#* entering out of range values *will* result in runtime errors.
 
 #! Tips
 const config_allowTips: int = 1

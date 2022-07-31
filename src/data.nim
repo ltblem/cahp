@@ -417,3 +417,4 @@ const
     creset: string = "\x1b[0m"
     cbold: string = "\x1b[1m"
     cgreen: string = "\x1b[32m"
+    cred: string = "\x1b[31m"

@@ -13,9 +13,9 @@ randomize()
 include config, data
 
 #! === Initializing config === !#
-#TODO: Add checks to confirm given values are valid.
 var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "enableDebug"]
 var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates,config_enableDebug]
+
 var config = initTable[string, int]()
 for pairs in zip(configKeys, configVals):
     var (key, val) = pairs
@@ -24,10 +24,32 @@ for pairs in zip(configKeys, configVals):
 if config["enableDebug"] == 1:
     echo config
 
+proc invalidConfig(configIssue: string) {.noconv.} =
+    if config["enableDebug"] == 1:
+        echo cred & cbold & "Config " & configIssue & " contains an error. Instability may occur." & creset
+    else:
+        echo "Invalid config detected. Check your config.nim and recompile."
+        echo "Issue with config: " & configIssue
+        quit(1)
+
+# === Check configs are valid === #
+if config["allowTips"] > 1 or config["allowTips"] < 0:
+    invalidConfig("allowTips")
+if config["tipFrequency"] > 5 or config["tipFrequency"] < 0:
+    invalidConfig("tipFrequency")
+if config["allowInfo"] > 1 or config["allowInfo"] < 0:
+    invalidConfig("allowInfo")
+if config["allowNames"] > 1 or config["allowNames"] < 0:
+    invalidConfig("allowNames")
+if config["allowDates"] > 1 or config["allowDates"] < 0:
+    invalidConfig("allowDates")
+if config["enableDebug"] > 1 or config["enableDebug"] < 0:
+    invalidConfig("enableDebug")
+
 #! === Basic procs === !#
 proc exit() {.noconv.} =
     echo "\n" & cgreen & cbold & sample(goodbies) & creset
-    quit()
+    quit(0)
 setControlCHook(exit)
 
 proc clear() {.noconv.} =
