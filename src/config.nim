@@ -1,7 +1,24 @@
 # This is a configuration file for you to edit before compilation.
 # The defaults provided here are the same ones used in the release binaries.
 # You can change them to customize your build.
-# Note that 1 = true and 0 = false
+#* Note that 1 = true and 0 = false
+
+#[
+	List of configs and their default values:
+		allowTips = 1
+		tipFrequency = 2
+		#//allowColour = 1
+		allowInfo = 1
+		allowNames = 1
+		allowDates = 1
+		allowNameNouns = 1
+		nameNounsFrequency = 1
+		allowCats = 1
+		catFrequency = 1
+		boldCats = 1
+		enableDebug = 0
+]#
+
 
 #! Tips
 const config_allowTips: int = 1
@@ -9,11 +26,12 @@ const config_allowTips: int = 1
 #? Values: 1, 0
 #? Default: 1
 
-const config_tipFrequency: int = 1 # /5
-# This option changes how many times out of 5 a tip is generated.
+const config_tipFrequency: int = 2 # /10
+# This option changes how many times out of 10 a tip is generated.
 # Only effective if config_allowTips is true.
-#? Values: 1-5
-#? Default: 1
+# Must add with config_catFrequency to 10 or less.
+#? Values: 1-10
+#? Default: 2
 
 #[
 TODO: Make this work
@@ -27,7 +45,7 @@ TODO: Make this work
 #! Info
 const config_allowInfo: int = 1
 # This option changes whether info is displayed.
-# Overrides other configs in the section #! Info
+# Overrides other configs in this section.
 #? Values: 1, 0
 #? Default: 1
 
@@ -53,6 +71,25 @@ const config_nameNounsFrequency: int = 1 # /5
 #? Values: 1-5
 #? Default: 1
 
+#! Cats
+const config_allowCats: int = 1
+# This options changes whether cats are sometimes displayed.
+# A named cat will appear instead of a regular phrase.
+# Cats are now displayed in ASCII art, because I got lazy.
+#? Values: 1, 0
+#? Default: 0
+
+const config_catFrequency: int = 1 # /10
+# This option changes how many times out of 5 a cat is used instead of a regular phrase if a tip doesn't occur.
+# Only effective if config_allowCats is true
+# Must add with config_tipFrequency to 10 or less.
+#? Values: 1-10
+#? Default: 1
+
+const config_boldCats: int = 1
+# This option changes whether bold text is used in cats.
+#? Values: 1, 0
+#? Default: 1
 
 
 #! Debug

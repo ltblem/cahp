@@ -1,6 +1,8 @@
 # Cahp - A LetThereBeLemons creation
 # Liscensed under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
 
+#* Program currently requires wget and icat to run, and must be run on a Linux machine.
+
 #! === Imports === !#
 
 import std/random, std/unicode, std/rdstdin, std/os, std/sequtils, std/tables
@@ -13,8 +15,8 @@ randomize()
 include config, data
 
 #! === Initializing config === !#
-var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "enableDebug"]
-var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_enableDebug]
+var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "allowCats", "catFrequency", "boldCats", "enableDebug"]
+var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_allowCats, config_catFrequency, config_boldCats, config_enableDebug]
 
 var config = initTable[string, int]()
 for pairs in zip(configKeys, configVals):
@@ -36,7 +38,7 @@ proc invalidConfig(configIssue: string) {.noconv.} =
 # === Check configs are valid === #
 if config["allowTips"] > 1 or config["allowTips"] < 0:
     invalidConfig("allowTips")
-if config["tipFrequency"] > 5 or config["tipFrequency"] < 1:
+if config["tipFrequency"] > 10 or config["tipFrequency"] < 1:
     invalidConfig("tipFrequency")
 if config["allowInfo"] > 1 or config["allowInfo"] < 0:
     invalidConfig("allowInfo")
@@ -48,8 +50,14 @@ if config["allowNameNouns"] > 1 or config["allowNameNouns"] < 0:
     invalidConfig("allowNameNouns")
 if config["nameNounsFrequency"] > 5 or config["nameNounsFrequency"] < 1:
     invalidConfig("nameNounsFrequency")
+if config["allowCats"] > 1 or config["allowCats"] < 0:
+    invalidConfig("allowCats")
+if config["catFrequency"] > 10 or config["catFrequency"] < 1:
+    invalidConfig("catFrequency")
 if config["enableDebug"] > 1 or config["enableDebug"] < 0:
     invalidConfig("enableDebug")
+if config["catFrequency"] + config["tipFrequency"] > 10:
+    invalidConfig("tipFrequency + catFrequency")
 
 #! === Basic procs === !#
 proc exit() {.noconv.} =
@@ -64,6 +72,16 @@ proc clear() {.noconv.} =
         discard execShellCmd("clear")
 
 #! === Phrase generation === !#
+
+proc genCat(): string =
+    var name: string = cbold & sample(catnames_f) & " " & sample(catnames_l) & creset
+    var cat: string
+    if config["boldCats"] == 1:
+        cat = sample(catcolours) & cbold & sample(cats) & creset
+    elif config["boldCats"] == 0:
+        cat = sample(catcolours) & sample(cats) & creset
+    return cat & "\n" & name
+
 
 proc genPhrase(phrasetype: string): string =
     if phrasetype == "s":
@@ -82,6 +100,9 @@ proc genPhrase(phrasetype: string): string =
             return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & sample(punctuation) & creset
     elif phrasetype == "t":
         return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
+    elif phrasetype == "c":
+        echo genCat()
+        return ""
 
 proc genInfo(): string =
     if config["allowInfo"] == 1:
@@ -98,8 +119,6 @@ proc genInfo(): string =
             return ""
     elif config["allowInfo"] == 0:
         return ""
-#//var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
-#//return info
 
 
 #! === Variables === !#
@@ -107,18 +126,28 @@ proc genInfo(): string =
 const inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
 var redrawMode: bool = false
 
+#! === Random generation === !#
+var choices: seq[string] = @[]
+
+for i in countUp(1, config["tipFrequency"]):
+    choices = concat(choices, @["t"])
+for i in countUp(config["tipFrequency"], config["catFrequency"] + config["tipFrequency"] - 1):
+    choices = concat(choices, @["c"])
+for i in countUp(config["catFrequency"] + config["tipFrequency"] + 1, 10):
+    choices = concat(choices, @["s"])
+
+#//shuffle(choices)
+if config["enableDebug"] == 1:
+    echo "Choices: " & choices
+
 #! === Program Loop === !#
 
 while true:
     var command: string
     var ptype: string
-    if config["allowTips"] == 1:
-        if rand(1..5) <= config["tipFrequency"]:
-            ptype = "t"
-        else:
-            ptype = "s"
-    elif config["allowTips"] == 0:
-        ptype = "s"
+
+    ptype = sample(choices)
+
     genPhrase(ptype).echo()
     
     if ptype == "s":

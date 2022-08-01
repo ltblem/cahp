@@ -70,7 +70,8 @@ const things = [
     "iPhone",
     "penis face",
     "politician",
-    "absolute legend"
+    "absolute legend",
+    "couple"
 ]
 
 const namepref = [
@@ -134,7 +135,8 @@ const verbs = [
     "sliced open",
     "chopped down the middle",
     "hit right where it hurts",
-    "beaten"
+    "beaten",
+    "mounted"
 ]
 
 const adjectives = [
@@ -186,7 +188,8 @@ const adjectives = [
     "A snail-like",
     "An esoteric",
     "A gay couple consisting of a man and this",
-    "A gay couple consisting of a woman and this"
+    "A gay couple consisting of a woman and this",
+    "A deranged"
 ]
     
 const punctuation = [
@@ -387,7 +390,8 @@ const tips = [
     "#51: SPARE THE SYMPATHY",
     "#52: What is this mysterious Premium everyone keeps talking about?",
     "#53: Premium used to exist in the Python version of Cahp, but it doesn't anymore.",
-    "#54: https://github.com/ltblem/cahp"
+    "#54: https://github.com/ltblem/cahp",
+    "#55: Sometimes cats will generate. I think they're cute."
 ]
 
 const goodbies = [
@@ -423,6 +427,108 @@ const months = [
     "December"
 ]
 
+const cats =[
+"""
+|\---/|
+| o_o |
+ \_^_/
+""",
+"""
+ /\_/\
+( o.o )
+ > ^ <
+""",
+"""
+           /)
+          ((
+           ))
+      ,   //,
+     /,\="=/,\
+    /` d   b `\
+   =\:.  Y  .:/=
+    /'***o***'\
+   ( (       ) )
+   (,,)'-=-'(,,)
+""",
+"""
+  )\._.,--....,'``.
+ /,   _.. \   _\  (`._ ,.
+`._.-(,_..'--(,_..'`-.;.'
+
+""",
+"""
+  |\      _,,,---,,_
+  /,`.-'`'    -.  ;-;;,_
+ |,4-  ) )-,_..;\ (  `'-'
+'---''(_/--'  `-'\_)
+""",
+"""
+  |\      _,,,,--,,_
+  /,`.-'`'    -,  ;-;,
+ |,4-  ) ),,__ ) /;  ;;
+'---''(.'--'  (.'`.) `'
+""",
+"""
+  |\      _,,,,--,,_
+  /,`.-'`'    -,  \-;,
+ |,4-  ) ),,__ ,\ (  ;;
+'---''(.'--'  `-'`.)`'
+""",
+"""
+  |\      _,,,--,,_  ,)
+  /,`.-'`'   -,  ;-;;'
+ |,4-  ) )-,_ ) /\
+'---''(_/--' (_/-'
+""",
+"""
+          /|_
+         /  ,\
+      .-'   _,'
+     / _   |
+    /   )_ |
+,=='`.____)_)
+""",
+"""
+               _ |\_
+               \` ..\
+          __,.-" =__Y=
+        ."        )
+  _    /   ,    \/\_
+ ((____|    )_-\ \_-`
+ `-----'`-----` `--`
+"""
+]
+
+const catnames_f = [
+    "Kitty",
+    "Mittens",
+    "Fluffy",
+    "Cuddles",
+    "Bella",
+    "Oscar",
+    "Max",
+    "Lucy",
+    "Molly",
+    "Luna",
+    "Sophie",
+    "Chloe",
+    "Mia",
+    "Mr.",
+    "Mrs.",
+    "Lady",
+    "Lord"
+
+]
+
+const catnames_l = [
+    "Fantastico",
+    "Fluffers",
+    "The Cute",
+    "Crumbles",
+    "Fluffs"
+]
+
+
 const helppage: string = """
 Cahp - A LetThereBeLemons Creation
 =====
@@ -454,3 +560,14 @@ const
     cbold: string = "\x1b[1m"
     cgreen: string = "\x1b[32m"
     cred: string = "\x1b[31m"
+    cblue: string = "\x1b[34m"
+    cyellow: string = "\x1b[33m"
+    cpurple: string = "\x1b[35m"
+    ccyan: string = "\x1b[36m"
+    cwhite: string = "\x1b[37m"
+    cgray: string = "\x1b[90m"
+    cmagenta: string = "\x1b[95m"
+    corange: string = "\x1b[38;5;208m"
+    cbrown: string = "\x1b[38;5;214m"
+    
+    catcolours = [ccyan, cmagenta, corange, cbrown]
