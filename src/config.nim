@@ -7,7 +7,7 @@
 	List of configs and their default values:
 		allowTips = 1
 		tipFrequency = 2
-		#//allowColour = 1
+		allowColour = 1
 		allowInfo = 1
 		allowNames = 1
 		allowDates = 1
@@ -33,14 +33,11 @@ const config_tipFrequency: int = 2 # /10
 #? Values: 1-10
 #? Default: 2
 
-#[
-TODO: Make this work
-//#! Colour
-//const config_allowColour: int = 1
-//# This option changes whether colour is used in output.
-//# Values: 1, 0
-//# Default: 1
-]#
+#! Colour
+const config_allowColour: int = 1
+# This option changes whether colour is used in output.
+#? Values: 1, 0
+#? Default: 1
 
 #! Info
 const config_allowInfo: int = 1

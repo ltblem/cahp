@@ -15,8 +15,8 @@ randomize()
 include config, data
 
 #! === Initializing config === !#
-var configKeys: array = ["allowTips", "tipFrequency", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "allowCats", "catFrequency", "boldCats", "enableDebug"]
-var configVals: array = [config_allowTips, config_tipFrequency, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_allowCats, config_catFrequency, config_boldCats, config_enableDebug]
+var configKeys: array = ["allowTips", "tipFrequency", "allowColour", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "allowCats", "catFrequency", "boldCats", "enableDebug"]
+var configVals: array = [config_allowTips, config_tipFrequency, config_allowColour, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_allowCats, config_catFrequency, config_boldCats, config_enableDebug]
 
 var config = initTable[string, int]()
 for pairs in zip(configKeys, configVals):
@@ -26,6 +26,29 @@ for pairs in zip(configKeys, configVals):
 if config["enableDebug"] == 1:
     echo "Current configs:"
     echo config
+
+if config["allowColour"] > 1 or config["allowColour"] < 0:
+    if config["enableDebug"] == 1:
+        echo "Config allowColour contains an error. Instability may occur."
+    else:
+        echo "Invalid config detected. Check your config.nim and recompile."
+        echo "Issue with config: allowColour"
+        quit(1)
+elif config["allowColour"] == 0:
+    creset = ""
+    cbold = ""
+    cgreen = ""
+    cred = ""
+    cblue = ""
+    cyellow = ""
+    cpurple = ""
+    ccyan = ""
+    cwhite = ""
+    cgray = ""
+    cmagenta = ""
+    corange = ""
+    cbrown = ""
+    catcolours = [ccyan, cmagenta, corange, cbrown]
 
 proc invalidConfig(configIssue: string) {.noconv.} =
     if config["enableDebug"] == 1:
@@ -123,7 +146,7 @@ proc genInfo(): string =
 
 #! === Variables === !#
 
-const inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
+var inputPrompt: string = cgreen & cbold & "   > " & creset & cgreen
 var redrawMode: bool = false
 
 #! === Random generation === !#
@@ -136,7 +159,7 @@ for i in countUp(config["tipFrequency"], config["catFrequency"] + config["tipFre
 for i in countUp(config["catFrequency"] + config["tipFrequency"] + 1, 10):
     choices = concat(choices, @["s"])
 
-#//shuffle(choices)
+shuffle(choices)
 if config["enableDebug"] == 1:
     echo "Choices: " & choices
 
