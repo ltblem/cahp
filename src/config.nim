@@ -1,7 +1,24 @@
 # This is a configuration file for you to edit before compilation.
 # The defaults provided here are the same ones used in the release binaries.
 # You can change them to customize your build.
-# Note that 1 = true and 0 = false
+#* Note that 1 = true and 0 = false
+
+#[
+	List of configs and their default values:
+		allowTips = 1
+		tipFrequency = 2
+		#//allowColour = 1
+		allowInfo = 1
+		allowNames = 1
+		allowDates = 1
+		allowNameNouns = 1
+		nameNounsFrequency = 1
+		allowCats = 1
+		catFrequency = 1
+		boldCats = 1
+		enableDebug = 0
+]#
+
 
 #! Tips
 const config_allowTips: int = 1

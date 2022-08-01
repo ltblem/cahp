@@ -131,12 +131,12 @@ var choices: seq[string] = @[]
 
 for i in countUp(1, config["tipFrequency"]):
     choices = concat(choices, @["t"])
-for i in countUp(config["tipFrequency"], config["catFrequency"] + config["tipFrequency"]):
+for i in countUp(config["tipFrequency"], config["catFrequency"] + config["tipFrequency"] - 1):
     choices = concat(choices, @["c"])
-for i in countUp(config["catFrequency"] + config["tipFrequency"], 10):
+for i in countUp(config["catFrequency"] + config["tipFrequency"] + 1, 10):
     choices = concat(choices, @["s"])
 
-shuffle(choices)
+#//shuffle(choices)
 if config["enableDebug"] == 1:
     echo "Choices: " & choices
 
