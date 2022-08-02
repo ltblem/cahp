@@ -8,8 +8,8 @@ If you'd like to customise how Cahp is configured, you can modify the `config.ni
 
 ## How to Install
 
-Windows:
+Windows:    
 TBA
 
-Linux / OS X:
+Linux / OS X:    
 `curl -fsSL https://raw.githubusercontent.com/ltblem/cahp/master/release/install.sh | sh`
