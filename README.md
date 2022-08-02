@@ -6,6 +6,10 @@ Cahp generates a random phrase, styled a bit like a news article. It also random
 
 If you'd like to customise how Cahp is configured, you can modify the `config.nim` file before compilation.
 
-## Installation
+## How to Install
 
-You can either download a pre-built binary from the Releases page, or you can build your own by installing Nim and running `build.sh`.
+Windows:
+TBA
+
+Linux / OS X:
+`curl -fsSL https://raw.githubusercontent.com/ltblem/cahp/master/release/install.sh | sh`
