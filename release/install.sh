@@ -1,19 +1,22 @@
 #!/bin/sh
-echo "Would you like to directly clone the repo, or the latest release?"
-echo "1. Clone"
-echo "2. Latest Release"
-read -p "Choice: " choice
+echo "Download https://github.com/ltblem/cahp to directory $HOME/cahp-master?"
+read -p "[Y/n] " choice
 
-if [ $choice -eq 1 ]; then
+if [ $choice = "y" ]; then
 	echo "Cloning..."
 	mkdir cahp-master
-	git clone https://github.com/ltblem/cahp cahp-master
+	git clone https://github.com/ltblem/cahp $HOME/cahp-master
 	echo "The latest release is now in the directory cahp-master. Use config.nim to configure, then run build.sh to build."
-elif [ $choice -eq 2 ]; then
-	echo "This doesn't work at the moment."
-	#TODO: Make this work
-	#//echo "Downloading..."
-	#//mkdir cahp-4
-	#//git clone https://github.com/ltblem/cahp/tree/4 cahp-4
-	#//echo "The latest release is now in the directory cahp-4. Use config.nim to configure, then run build.sh to build."
+elif [ $choice = "Y" ]; then
+	echo "Cloning..."
+	mkdir cahp-master
+	git clone https://github.com/ltblem/cahp $HOME/cahp-master
+	echo "The latest release is now in the directory cahp-master. Use config.nim to configure, then run build.sh to build."
+elif [ $choice = "" ]; then
+	echo "Cloning..."
+	mkdir cahp-master
+	git clone https://github.com/ltblem/cahp $HOME/cahp-master
+	echo "The latest release is now in the directory cahp-master. Use config.nim to configure, then run build.sh to build."
+else
+	echo "Cancelled."
 fi
