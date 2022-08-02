@@ -8,8 +8,16 @@ If you'd like to customise how Cahp is configured, you can modify the `config.ni
 
 ## How to Install
 
+### From the Source
+
+You'll need to install Nim first and add it to your PATH.    
+
 Windows:    
 TBA
 
 Linux / OS X:    
 `curl -fsSL https://raw.githubusercontent.com/ltblem/cahp/master/release/install.sh | sh`
+
+### From the Binary
+
+Download the latest binary from the Releases page. Currently only supports Linux 64-bit.
