@@ -517,7 +517,6 @@ const catnames_f = [
     "Mrs.",
     "Lady",
     "Lord"
-
 ]
 
 const catnames_l = [
@@ -541,20 +540,6 @@ v - print the compile date
 CTRL+C to exit
 """
 
-#[
-Old helppage:
-    Cahp - A random sentence generator
-    A LetThereBeLemons creation
-    ---------------------------
-    enter - generate new story
-    h - this help page
-    c - clear
-    v - version
-    r - toggle redraw mode, clearing the screen every time a new story is generated
-    s - save a sentence
-    sp - set a new save path, `./cahp-save.txt` by default
-    ctrl+c to exit
-]#
 
 var
     creset: string = "\x1b[0m"

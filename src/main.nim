@@ -122,7 +122,11 @@ proc genPhrase(phrasetype: string): string =
         else:
             return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & sample(punctuation) & creset
     elif phrasetype == "t":
-        return cgreen & cbold & " Tip " & creset & cbold & sample(tips) & creset
+        var chosentip: string = sample(tips)
+        if chosentip == "#28: Technoblade never dies.":
+            return cgreen & cbold & " Tip " & creset & cmagenta & cbold & chosentip & creset
+        else:
+            return cgreen & cbold & " Tip " & creset & cbold & chosentip & creset
     elif phrasetype == "c":
         echo genCat()
         return ""

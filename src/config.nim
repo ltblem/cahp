@@ -71,8 +71,7 @@ const config_nameNounsFrequency: int = 1 # /5
 #! Cats
 const config_allowCats: int = 1
 # This options changes whether cats are sometimes displayed.
-# A named cat will appear instead of a regular phrase.
-# Cats are now displayed in ASCII art, because I got lazy.
+# A named ASCII cat will appear instead of a regular phrase.
 #? Values: 1, 0
 #? Default: 0
 
