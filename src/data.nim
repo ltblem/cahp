@@ -536,6 +536,7 @@ enter - generate new phrase
 h - this help page
 c - clear the screen
 r - toggle redraw mode, clearing the screen every time a new story is generated
+v - print the compile date
 
 CTRL+C to exit
 """

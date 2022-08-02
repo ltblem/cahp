@@ -12,7 +12,7 @@ import std/random, std/unicode, std/rdstdin, std/os, std/sequtils, std/tables
 # std/tables is for table management
 randomize()
 
-include config, data
+include config, data, version
 
 #! === Initializing config === !#
 var configKeys: array = ["allowTips", "tipFrequency", "allowColour", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "allowCats", "catFrequency", "boldCats", "enableDebug"]
@@ -197,5 +197,7 @@ while true:
         if redrawMode == true:
             clear()
         continue
+    elif command == "v":
+        echo "Compiled: " & compd & "\n"
     else:
         echo "That's not a valid command."
