@@ -1,8 +1,6 @@
 # Cahp - A LetThereBeLemons creation
 # Liscensed under DONT STEAL MY CODE YOU ASSHOLE (DSMCYA)
 
-#* Program currently requires wget and icat to run, and must be run on a Linux machine.
-
 #! === Imports === !#
 
 import std/random, std/unicode, std/rdstdin, std/os, std/sequtils, std/tables
@@ -15,8 +13,8 @@ randomize()
 include config, data, version
 
 #! === Initializing config === !#
-var configKeys: array = ["allowTips", "tipFrequency", "allowColour", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "allowCats", "catFrequency", "boldCats", "enableDebug"]
-var configVals: array = [config_allowTips, config_tipFrequency, config_allowColour, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_allowCats, config_catFrequency, config_boldCats, config_enableDebug]
+var configKeys: array = ["allowTips", "tipFrequency", "allowColour", "allowInfo", "allowNames", "allowDates", "allowNameNouns", "nameNounsFrequency", "allowCats", "catFrequency", "boldCats", "mode", "enableDebug"]
+var configVals: array = [config_allowTips, config_tipFrequency, config_allowColour, config_allowInfo, config_allowNames, config_allowDates, config_allowNameNouns, config_nameNounsFrequency, config_allowCats, config_catFrequency, config_boldCats, config_mode, config_enableDebug]
 
 var config = initTable[string, int]()
 for pairs in zip(configKeys, configVals):
@@ -81,6 +79,10 @@ if config["enableDebug"] > 1 or config["enableDebug"] < 0:
     invalidConfig("enableDebug")
 if config["catFrequency"] + config["tipFrequency"] > 10:
     invalidConfig("tipFrequency + catFrequency")
+if config["boldCats"] > 1 or config["boldCats"] < 0:
+    invalidConfig("boldCats")
+if config["mode"] > 2 or config["mode"] < 1:
+    invalidConfig("mode")
 
 #! === Basic procs === !#
 proc exit() {.noconv.} =
@@ -157,7 +159,7 @@ var redrawMode: bool = false
 var choices: seq[string] = @[]
 
 for i in countUp(1, config["tipFrequency"]):
-    choices = concat(choices, @["t"])
+        choices = concat(choices, @["t"])
 for i in countUp(config["tipFrequency"], config["catFrequency"] + config["tipFrequency"] - 1):
     choices = concat(choices, @["c"])
 for i in countUp(config["catFrequency"] + config["tipFrequency"] + 1, 10):
@@ -173,12 +175,13 @@ while true:
     var command: string
     var ptype: string
 
-    ptype = sample(choices)
-
-    genPhrase(ptype).echo()
-    
-    if ptype == "s":
-        genInfo().echo()
+    if config["mode"] == 1:
+        ptype = sample(choices)
+        genPhrase(ptype).echo()
+        if ptype == "s":
+            genInfo().echo()
+    elif config["mode"] == 2:
+        echo cgreen & cbold & "---> " & creset & cbold & genName() & creset
 
     try:
         command = readLineFromStdin(inputPrompt)
@@ -187,7 +190,7 @@ while true:
     creset.echo
 
     if command == "h":
-        echo helppage
+        echo cbold & helppage & creset
     elif command == "c":
         clear()
     elif command == "r":

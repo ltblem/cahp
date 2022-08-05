@@ -85,7 +85,9 @@ const namepref = [
     "This random joker called",
     "An individual named",
     "An individual called",
-    "A certain individual that goes by the name of"
+    "A certain individual that goes by the name of",
+    "Some asshole called",
+    "A friend of mine,"
 ]
 
 const hasbeens = [

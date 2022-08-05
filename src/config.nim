@@ -62,11 +62,11 @@ const config_allowNameNouns: int = 1
 #? Values: 1, 0
 #? Default: 1
 
-const config_nameNounsFrequency: int = 1 # /5
+const config_nameNounsFrequency: int = 2 # /5
 # This option changes how many times out of 5 a name is used instead of a regular noun.
 # Only effective if config_allowNameNouns is true
 #? Values: 1-5
-#? Default: 1
+#? Default: 2
 
 #! Cats
 const config_allowCats: int = 1
@@ -85,6 +85,15 @@ const config_catFrequency: int = 1 # /10
 const config_boldCats: int = 1
 # This option changes whether bold text is used in cats.
 #? Values: 1, 0
+#? Default: 1
+
+#! Modes
+const config_mode: int = 1
+# This option changes how phrases are generated.
+# For more customisation, you can modify the source code.
+# Option: │story │names
+# Index : │1     │2
+#? Values: 1-2
 #? Default: 1
 
 
