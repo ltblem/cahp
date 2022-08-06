@@ -16,7 +16,7 @@ Windows:
 TBA
 
 Linux / OS X:    
-`curl -fsSL https://raw.githubusercontent.com/ltblem/cahp/master/release/install.sh | sh`
+`curl -fsSL https://raw.githubusercontent.com/ltblem/cahp/master/release/install.py | python`
 
 ### From the Binary
 

@@ -12,10 +12,11 @@
 		allowNames = 1
 		allowDates = 1
 		allowNameNouns = 1
-		nameNounsFrequency = 1
+		nameNounsFrequency = 2
 		allowCats = 1
 		catFrequency = 1
 		boldCats = 1
+		mode = 1
 		enableDebug = 0
 ]#
 
