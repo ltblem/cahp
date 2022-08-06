@@ -16,7 +16,11 @@ Windows:
 TBA
 
 Linux / OS X:    
-`curl -fsSL https://raw.githubusercontent.com/ltblem/cahp/master/release/install.py | python`
+ - Clone the repository
+ - Edit `config.nim`
+ - Run `build.sh`
+ - Find the executable in the `release/` directory
+ - Enjoy!
 
 ### From the Binary
 
