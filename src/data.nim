@@ -392,7 +392,7 @@ const tips = [
     "#51: SPARE THE SYMPATHY",
     "#52: What is this mysterious Premium everyone keeps talking about?",
     "#53: Premium used to exist in the Python version of Cahp, but it doesn't anymore.",
-    "#54: https://github.com/ltblem/cahp",
+    "#54: https://github.com/ltblem/cahp ",
     "#55: Sometimes cats will generate. I think they're cute."
 ]
 
@@ -518,7 +518,8 @@ const catnames_f = [
     "Mr.",
     "Mrs.",
     "Lady",
-    "Lord"
+    "Lord",
+    "Miss Kitty"
 ]
 
 const catnames_l = [
@@ -526,7 +527,8 @@ const catnames_l = [
     "Fluffers",
     "The Cute",
     "Crumbles",
-    "Fluffs"
+    "Fluffs",
+    "Paws"
 ]
 
 

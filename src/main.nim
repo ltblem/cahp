@@ -48,7 +48,7 @@ elif config["allowColour"] == 0:
     cbrown = ""
     catcolours = ["","","",""]
 
-proc invalidConfig(configIssue: string) {.noconv.} =
+proc raiseInvalidConfig(configIssue: string) {.noconv.} =
     if config["enableDebug"] == 1:
         echo cred & cbold & "Config " & configIssue & " contains an error. Instability may occur." & creset
     else:
@@ -58,31 +58,31 @@ proc invalidConfig(configIssue: string) {.noconv.} =
 
 # === Check configs are valid === #
 if config["allowTips"] > 1 or config["allowTips"] < 0:
-    invalidConfig("allowTips")
+    raiseInvalidConfig("allowTips")
 if config["tipFrequency"] > 10 or config["tipFrequency"] < 1:
-    invalidConfig("tipFrequency")
+    raiseInvalidConfig("tipFrequency")
 if config["allowInfo"] > 1 or config["allowInfo"] < 0:
-    invalidConfig("allowInfo")
+    raiseInvalidConfig("allowInfo")
 if config["allowNames"] > 1 or config["allowNames"] < 0:
-    invalidConfig("allowNames")
+    raiseInvalidConfig("allowNames")
 if config["allowDates"] > 1 or config["allowDates"] < 0:
-    invalidConfig("allowDates")
+    raiseInvalidConfig("allowDates")
 if config["allowNameNouns"] > 1 or config["allowNameNouns"] < 0:
-    invalidConfig("allowNameNouns")
+    raiseInvalidConfig("allowNameNouns")
 if config["nameNounsFrequency"] > 5 or config["nameNounsFrequency"] < 1:
-    invalidConfig("nameNounsFrequency")
+    raiseInvalidConfig("nameNounsFrequency")
 if config["allowCats"] > 1 or config["allowCats"] < 0:
-    invalidConfig("allowCats")
+    raiseInvalidConfig("allowCats")
 if config["catFrequency"] > 10 or config["catFrequency"] < 1:
-    invalidConfig("catFrequency")
+    raiseInvalidConfig("catFrequency")
 if config["enableDebug"] > 1 or config["enableDebug"] < 0:
-    invalidConfig("enableDebug")
+    raiseInvalidConfig("enableDebug")
 if config["catFrequency"] + config["tipFrequency"] > 10:
-    invalidConfig("tipFrequency + catFrequency")
+    raiseInvalidConfig("tipFrequency + catFrequency")
 if config["boldCats"] > 1 or config["boldCats"] < 0:
-    invalidConfig("boldCats")
+    raiseInvalidConfig("boldCats")
 if config["mode"] > 2 or config["mode"] < 1:
-    invalidConfig("mode")
+    raiseInvalidConfig("mode")
 
 #! === Basic procs === !#
 proc exit() {.noconv.} =
