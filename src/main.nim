@@ -110,19 +110,22 @@ proc genCat(): string =
 
 proc genPhrase(phrasetype: string): string =
     if phrasetype == "s":
+        var punct_preset: string = sample(punctuation)
+        if punct_preset == "__preset:MoreAtRand__":
+            punct_preset = "; More at " & $rand(3..10) & "!"
         if rand(1..5) <= config["nameNounsFrequency"]:
             case rand(1..3)
             of 1:
-                return cgreen & cbold & "---> " & creset & cbold & sample(namepref) & " " & genName() & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & sample(punctuation) & creset
+                return cgreen & cbold & "---> " & creset & cbold & sample(namepref) & " " & genName() & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & punct_preset & creset
             of 2:
-                return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(namepref).toLower() & " " & genName() & sample(punctuation) & creset
+                return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(namepref).toLower() & " " & genName() & punct_preset & creset
             of 3:
-                return cgreen & cbold & "---> " & creset & cbold & sample(namepref) & " " & genName() & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(namepref).toLower() & " " & genName() & sample(punctuation) & creset
+                return cgreen & cbold & "---> " & creset & cbold & sample(namepref) & " " & genName() & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(namepref).toLower() & " " & genName() & punct_preset & creset
             else:
                 echo "Error with random generation."
                 quit(1)
         else:
-            return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & sample(punctuation) & creset
+            return cgreen & cbold & "---> " & creset & cbold & sample(adjectives) & " " & sample(things) & " " & sample(hasbeens) & " " & sample(verbs) & " by " & sample(adjectives).toLower() & " " & sample(things) & punct_preset & creset
     elif phrasetype == "t":
         var chosentip: string = sample(tips)
         if chosentip == "#28: Technoblade never dies.":

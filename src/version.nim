@@ -1,1 +1,1 @@
-const compd: string ="N/A"
+const compd: string = "N/A"

@@ -93,7 +93,6 @@ const namepref = [
 const hasbeens = [
     "has been",
     "has just been",
-    "has just gotten",
     "was",
     "was just",
     "just got"
@@ -204,7 +203,7 @@ const punctuation = [
     "!?",
     "..?",
     "...",
-    "; More at 6!",
+    "__preset:MoreAtRand__",
     ", who refused to comment on the matter.",
     ". Oh no! Anyway...",
     ", which is terrifying, but I don't care.",
@@ -393,7 +392,8 @@ const tips = [
     "#52: What is this mysterious Premium everyone keeps talking about?",
     "#53: Premium used to exist in the Python version of Cahp, but it doesn't anymore.",
     "#54: https://github.com/ltblem/cahp ",
-    "#55: Sometimes cats will generate. I think they're cute."
+    "#55: Sometimes cats will generate. I think they're cute.",
+    "#56; Dinosaurs are cool. Transphobia is not."
 ]
 
 const goodbies = [
