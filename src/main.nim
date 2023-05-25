@@ -139,7 +139,7 @@ proc genPhrase(phrasetype: string): string =
 proc genInfo(): string =
     if config["allowInfo"] == 1:
         if config["allowNames"] == 1 and config["allowDates"] == 1:
-            var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+            var info: string = "Written by " & genName() & " on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2022)
             return info
         elif config["allowNames"] == 1 and config["allowDates"] == 0:
             var info: string = "Written by " & genName()
