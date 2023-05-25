@@ -145,7 +145,7 @@ proc genInfo(): string =
             var info: string = "Written by " & genName()
             return info
         elif config["allowNames"] == 0 and config["allowDates"] == 1:
-            var info: string = "Written on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2021)
+            var info: string = "Written on " & sample(months) & " " & $rand(1..31) & ", " & $rand(2016..2022)
             return info
         elif config["allowNames"] == 0 and config["allowDates"] == 0:
             return ""
