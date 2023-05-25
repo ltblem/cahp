@@ -199,10 +199,10 @@ while true:
     elif command == "r":
         if redrawMode == true:
             redrawMode = false
-            echo cgreen & cbold & "Redraw mode disabled." & creset
+            echo cgreen & cbold & "Redraw mode disabled. Press enter to apply change." & creset
         elif redrawMode == false:
             redrawMode = true
-            echo cgreen & cbold & "Redraw mode enabled." & creset
+            echo cgreen & cbold & "Redraw mode enabled. Press enter to apply change." & creset
     elif command == "":
         if redrawMode == true:
             clear()
