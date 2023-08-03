@@ -561,7 +561,12 @@ const catnames_l = [
     "The Cute",
     "Crumbles",
     "Fluffs",
-    "Paws"
+    "Paws",
+    "OPPENHEIMER",
+    "Fluffball",
+    "McFluffy",
+    "McSilly",
+    "The Silly"
 ]
 
 
@@ -593,4 +598,4 @@ var
     corange: string = "\x1b[38;5;208m"
     cbrown: string = "\x1b[38;5;214m"
     
-    catcolours = [ccyan, cmagenta, corange, cbrown]
+    catcolours = [ccyan, cmagenta, corange, cbrown, cblue, cpurple, cgray]

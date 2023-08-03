@@ -46,7 +46,7 @@ elif config["allowColour"] == 0:
     cmagenta = ""
     corange = ""
     cbrown = ""
-    catcolours = ["","","",""]
+    catcolours = ["","","","","","",""]
 
 proc raiseInvalidConfig(configIssue: string) {.noconv.} =
     if config["enableDebug"] == 1:
