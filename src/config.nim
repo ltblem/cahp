@@ -77,7 +77,7 @@ const config_allowCats: int = 1
 #? Default: 0
 
 const config_catFrequency: int = 1 # /10
-# This option changes how many times out of 5 a cat is used instead of a regular phrase if a tip doesn't occur.
+# This option changes how many times out of 10 a cat is used instead of a regular phrase if a tip doesn't occur.
 # Only effective if config_allowCats is true
 # Must add with config_tipFrequency to 10 or less.
 #? Values: 1-10
