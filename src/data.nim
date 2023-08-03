@@ -71,7 +71,9 @@ const things = [
     "penis face",
     "politician",
     "absolute legend",
-    "couple"
+    "couple",
+    "Barbie",
+    "uncle"
 ]
 
 const namepref = [
@@ -142,7 +144,9 @@ const verbs = [
     "stared at",
     "intruded on",
     "victimised",
-    "discriminated"
+    "discriminated",
+    "busted",
+    "wasted"
 ]
 
 const adjectives = [
@@ -195,7 +199,8 @@ const adjectives = [
     "An esoteric",
     "A gay couple consisting of a man and this",
     "A gay couple consisting of a woman and this",
-    "A deranged"
+    "A deranged",
+    "A murderous"
 ]
     
 const punctuation = [

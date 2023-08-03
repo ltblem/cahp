@@ -101,5 +101,6 @@ const config_mode: int = 1
 #! Debug
 const config_enableDebug: int = 0
 # This option will provie some extra indormation for debugging purposes.
+# It also allows some invalid configs to be compiled.
 #? Values: 1, 0
 #? Default: 0
