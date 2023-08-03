@@ -298,7 +298,9 @@ const writtenby_f = [
     "Bilbo",
     "J. P.",
     "Jackson",
-    "Nasty"
+    "Nasty",
+    "J. R.",
+    "Bruno"
 ]
 
 const writtenby_l = [
@@ -338,7 +340,11 @@ const writtenby_l = [
     "Shnurdenburgh",
     "Chestnutt",
     "Ray",
-    "Fella"
+    "Fella",
+    "Heisenberg",
+    "Heisenburger",
+    "Oppenheimer",
+    "Woodford"
 ]
 
 proc genName(): string =
@@ -409,7 +415,11 @@ const tips = [
     "#62: You can get Feb. 31 as a date here, pretty cool.",
     "#63: Refer to tip #8.",
     "#64: You either a smart fella, or a fart smella.",
-    "#65: https://cat-website.pages.dev "
+    "#65: https://cat-website.pages.dev ",
+    "#66: Follow me on twitter: @elonmusk",
+    "#67: 2 more...",
+    "#68: Did you know that you can edit ./config.nim to change the settings before compiling?",
+    "#69: Nice."
 ]
 
 const goodbies = [
